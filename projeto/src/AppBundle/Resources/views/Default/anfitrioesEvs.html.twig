@@ -1,0 +1,169 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        	
+            function get_anfitrioes()
+            {
+            	
+                window.tabela = $('#table').DataTable( {
+                	"destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_anfitrioes") }}',
+                        "data": {
+                        	"sort": [[0,'desc']],
+                        	'nome_anfitriao': $('#nome_anfitriao').val(),
+                        	'email_anfitriao': $('#email_anfitriao').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                                    {"targets" : 5,
+                                        "render" : function (obj) {
+                                        	return "<button type='button' id='editar_anfitriao"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Editar</button><button id='remover_anfitriao"+obj+"' data-id="+obj+" class='btn btn-danger'>Remover</button>";
+                                        }
+
+                                    }
+                                ]
+
+                } );
+				
+            }
+            get_anfitrioes();
+            $("body").on("change",".get_anfitrioes",function(){
+            	get_anfitrioes();
+        	});
+      
+        });
+        
+        $("body").on("click","button[id*='editar_anfitriao']",function(){
+    		var element = $(this);
+    		$.ajax({
+    			data: {
+    				id: element.attr('data-id') },
+    			method: 'post',
+    			url: '{{ path('admin_editar_anfitriao') }}',
+    			success: function(result){
+    				$('#modal_editar_anfitriao').modal('show');
+    				$('#modal_editar_anfitriao').on('shown.bs.modal', function() {
+    					$('.montar_form_anfitriao').remove();
+    				    $('#modal_editar_anfitriao').find('.modal-body').append(result);
+    				  });
+    			},
+    			error: function(jqXHR, textStatus, errorThrown){
+    				
+    					alert('Erro = '+errorThrown);
+    			}
+    			});
+    	});
+        
+        $("#form_anfitriao").submit(function(e) {
+
+            $.ajax({
+                   type: "POST",
+                   url: '{{ path('admin_gravar_anfitriao') }}',
+                   data: { dados: $("#form_anfitriao").serialize() },
+                   success: function(data)
+                   {
+                	   	$('#modal_editar_anfitriao').modal('hide');
+                	   	window.location.reload(true);
+                   }
+                 });
+
+            e.preventDefault();
+        });
+        
+        $("body").on("click","button[id*='remover_anfitriao']",function(){
+    		var element = $(this);
+    		$.ajax({
+    			data: { id: element.attr('data-id') },
+    			method: 'post',
+    			url: '{{ path('admin_remover_anfitriao') }}',
+    			success: function(result){
+    				alert('Anfitrião removido com sucesso');
+    				window.location.reload(true);
+    			},
+    			error: function(jqXHR, textStatus, errorThrown){
+    				
+    					alert('Erro = '+errorThrown);
+    			}
+    			});
+    	});
+
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_anfitriao" class='form-control get_anfitrioes' type='text' name='nome_anfitriao' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Email</label>
+                                <input id="email_anfitriao" class='form-control get_anfitrioes' type='text' name='email_anfitriao' value=''></input>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>CPF</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Anfitriao -->
+<form id='form_anfitriao' method='POST'>
+	<div class="modal fade" id="modal_editar_anfitriao"
+		tabindex="-1" role="dialog"
+		aria-labelledby="modal_editar_anfitriao">
+		<div class="modal-dialog" role="anfitriao">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Anfitrião</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" id="editar_anfitrioes"
+						class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>						
+{% endblock %}

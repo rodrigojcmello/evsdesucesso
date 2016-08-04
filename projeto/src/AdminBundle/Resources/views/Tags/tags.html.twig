@@ -1,0 +1,279 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+			function get_tags() {
+
+				window.tabela = $('#table').DataTable({
+					"destroy": true,
+					"bProcessing": false,
+					"bServerSide": true,
+					"sPaginationType": "simple",
+					"bFilter": false,
+					"bInfo": false,
+					"ajax": {
+						"url": '{{ path("buscar_tags") }}',
+						"data": {
+							"sort": [[0, 'desc']],
+							'nome_tag': $('#nome_tag').val()
+						},
+						"type": "POST"
+					},
+					"columnDefs": [
+						{
+							"targets": [2, 3, 4],
+							"render": function (obj) {
+								console.log(obj);
+								return ( obj == true ) ? "sim" : "nao";
+
+							}
+
+						},
+						{
+							"targets": 5,
+							"render": function (obj) {
+								return "<span style='white-space:nowrap'><button type='button' id='editar_tag" + obj + "' data-id='" + obj + "' class='btn btn-primary'>Editar</button><button id='remover_tag" + obj + "' data-id=" + obj + " class='btn btn-danger'>Remover</button></span>";
+							}
+
+						}
+					]
+
+				});
+
+			}        	
+            get_tags();
+            $("body").on("change",".get_tags",function(){
+            	get_tags();
+        	});
+        
+            $("body").on("click","button[id*='editar_tag']",function(){
+        		var element = $(this);
+        		$.ajax({
+        			data: {
+        				id: element.attr('data-id') },
+        			method: 'post',
+        			url: '{{ path('admin_editar_tag') }}',
+        			success: function(result){
+        				$('#modal_editar_tag').modal('show');
+        				$('#modal_editar_tag').on('shown.bs.modal', function() {
+        					$('.montar_form_tag').remove();
+        				    $('#modal_editar_tag').find('.modal-body').append(result);
+        				  });
+        			},
+        			error: function(jqXHR, textStatus, errorThrown){
+        				
+        					alert('Erro = '+errorThrown);
+        			}
+        			});
+        	});
+            
+            $("body").on("click","button[id='inserir_nova_tag']",function(){
+            	$('#modal_nova_tag').modal('show');
+        	});
+            
+            $("#form_tag").validate({
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('admin_gravar_tag') }}',
+                        data: { dados: $("#form_tag").serialize() },
+                        success: function(data)
+                        {
+                            $('#modal_editar_tag').modal('hide');
+                            window.location.reload(true);
+                        }
+                    });
+                },
+                rules: {
+                    editar_nome_tag: 'required'
+                },
+                messages: {
+                    editar_nome_tag: 'Digite um nome para a Tag'
+                }
+            });
+            
+            $("#form_nova_tag").validate({
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('admin_inserir_nova_tag') }}',
+                        data: { dados: $("#form_nova_tag").serialize() },
+                        success: function(data) {
+                            $('#modal_nova_tag').modal('hide');
+                            window.location.reload(true);
+                        }
+                    });
+                },
+                rules: {
+                    novo_nome_tag: 'required'
+                },
+                messages: {
+                    novo_nome_tag: 'Digite um nome para a Tag'
+                }
+            });
+
+            
+            $("body").on("click","button[id*='remover_tag']",function(){
+        		var element = $(this);
+                    if(!confirm('Tem certeza que deseja remover este item?')) return false;
+        		$.ajax({
+        			data: { id: element.attr('data-id') },
+        			method: 'post',
+        			url: '{{ path('admin_remover_tag') }}',
+        			success: function(result){
+        				alert('Tag removida com sucesso');
+        				window.location.reload(true);
+        			},
+        			error: function(jqXHR, textStatus, errorThrown){
+        				
+        					alert('Erro = '+errorThrown);
+        			}
+        			});
+        	});
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_tag" class='form-control get_tags' type='text' name='nome_tag' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='inserir_nova_tag' class='btn btn-primary'>Nova</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table' class='table-striped'>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Tag pai</th>
+                            <th>Visivel</th>  
+                            <th>Exibir auto. produtos</th>
+                            <th>Exibir categoria</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Tag -->
+<form id='form_tag' method='POST'>
+	<div class="modal fade" id="modal_editar_tag"
+		tabindex="-1" role="dialog"
+		aria-labelledby="modal_editar_tag">
+		<div class="modal-dialog" role="tag">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Tag</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- Modal nova tag -->
+<form id='form_nova_tag' method='POST'>
+	<div class="modal fade" id="modal_nova_tag" tabindex="-1" role="dialog" aria-labelledby="modal_nova_tag" data-backdrop="static">
+		<div class="modal-dialog" role="tag">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Nova Tag</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				<div class='row'>
+						<div class='col-md-3'>
+							<label>Nome</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<input class='form-control' type='text' name='novo_nome_tag' value=''></input>
+    					</div>
+       				</div>
+    				<div class='row'>
+						<div class='col-md-3'>
+							<label>Tag pai</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<select name="novo_id_parent_tag" class="form-control">
+                                    <option value="todos">Todos</option>
+                                    {% for item in tags %}
+                                        <option value="{{ item.id_tag }}">{{ item.nome }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Visível</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<select name="novo_visivel_tag" class="form-control">
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Exibir auto. produtos</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<select name="novo_exibir_auto_produtos_tag" class="form-control">
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Exibir Categoria</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<select name="novo_exibir_categoria_tag" class="form-control">
+                                    <option value="true">Sim</option>
+                                    <option value="false">Não</option>
+                                </select>
+    					</div>
+       				</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>							
+{% endblock %}

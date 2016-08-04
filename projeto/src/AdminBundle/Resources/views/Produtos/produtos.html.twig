@@ -1,0 +1,441 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="../bower_components/datatables/media/js/dataTables.responsive.min.js?1"></script>
+    <script>
+        $(document).ready(function(){
+            function get_produtos(){
+                window.tabela = $('#table').DataTable( {
+                    "destroy": true,
+                    "bProcessing": false,
+                    "responsive": true,
+                    "dom": 'Bfrtip',
+                    "buttons": [],
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_produtos") }}',
+                        "data": {
+                            "sort": [[0,'desc']],
+                            'nome_produto': $('#nome_produto').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                        { "targets" : 5 ,
+                            "render" : function (obj) {
+                                return ( obj == "true" ) ? "sim" : "nao" ;
+                            }
+                        },
+                        {"targets" : 7,
+                            "render" : function (obj) {
+                                return "<span style='white-space: nowrap'><button type='button' id='editar_produto"+obj+"' data-id='"+obj+"' class='btn btn-primary' style='margin-right: 5px'>Editar</button><button id='remover_produto"+obj+"' data-id="+obj+" class='btn btn-danger'>Remover</button></span>";
+                            }
+                        },
+                        {"targets" : 0,
+                            "render" : function (obj) {
+                                return "<td><div class='item_imagem_carrinho'><div style='width:77px;height:70px;background-size:cover;background-image: url("+obj+") '></div></div></td>";
+                            }
+                        }
+                    ]
+
+                } );
+
+            }
+
+            get_produtos();
+
+            $("body").on("change",".get_produtos",function(){
+            	get_produtos();
+            });
+
+            $("body").on("click","button[id*='editar_produto']",function(){
+                var element = $(this);
+                $.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_editar_produto') }}',
+                    success: function(result){
+                        $('#modal_editar_produto').modal('show');
+                        $('#modal_editar_produto').on('shown.bs.modal', function() {
+                            $('.montar_form_produto').remove();
+                            $('#modal_editar_produto').find('.modal-body').append(result);
+                            $('select').select2();
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+
+            $("body").on("click","button[id='inserir_novo_produto']",function(){
+                $('#modal_novo_produto').modal('show');
+                $('select').select2();
+            });
+
+            $("#form_produto").validate({
+                // rodrigo
+                submitHandler: function(e) {
+                    // console.log(new FormData(this));
+                    // console.log($('#form_produto').serialize());
+                    $.ajax({
+                        type: "POST",
+                        // contentType: false,
+                        // processData: false,
+                        // cache: false,
+                        dataType: "json",
+                        url: '{{ path('admin_gravar_produto') }}',
+                        data: { dados: $('#form_produto').serialize() },
+                        success: function(data) {
+                            // console.log(data);
+                            if (data == 0) {
+                                alert('A imagem deve ser do tipo .png');
+                            } else if(data == 2) {
+                                alert('Favor inserir imagem do produto');
+                            } else {
+                                $("#form_produto").trigger( "reset" );
+                                $('#modal_editar_produto').modal('hide');
+                                window.location.reload(true);
+                            }
+                        },
+                        error: function(x) {
+                            console.log(x);
+                            console.log('erro');
+                        }
+                    });
+                },
+                rules: {
+                    ipt_nome_produto: 'required',
+                    // ipt_ean_produto: 'required',
+                    ipt_sku_produto: 'required',
+                    ipt_apelido_produto: 'required'
+                },
+                messages: {
+                    ipt_nome_produto: 'Digite o nome do produto',
+                    // ipt_ean_produto: 'Digite o EAN do produto',
+                    ipt_sku_produto: 'Digite o SKU do produto',
+                    ipt_apelido_produto: 'Digite o apelido do produto'
+                }
+            });
+
+            $("#form_novo_produto").validate({
+                // rodrigo
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        // contentType:false,
+                        // processData:false,
+                        // cache:false,
+                        dataType:"json",
+                        url: '{{ path('admin_inserir_novo_produto') }}',
+                        // data: new FormData(this),
+                        data: { dados: $('#form_novo_produto').serialize() },
+                        success: function(data){
+                            if(data == 0){
+                                alert('A imagem deve ser do tipo .png');
+                            } else if(data == 2){
+                                alert('Favor inserir imagem do produto');
+                            } else {
+                                alert('Produto cadastrado com sucesso');
+                                $("#form_novo_produto").trigger( "reset" );
+                                $('#modal_novo_produto').modal('hide');
+                                window.location.reload(true);
+                            }
+                        }
+                    });
+                },
+                rules: {
+                    ipt_nome_produto: 'required',
+                    // ipt_ean_produto: 'required',
+                    ipt_sku_produto: 'required',
+                    ipt_apelido_produto: 'required'
+                },
+                messages: {
+                    ipt_nome_produto: 'Digite o nome do produto',
+                    // ipt_ean_produto: 'Digite o EAN do produto',
+                    ipt_sku_produto: 'Digite o SKU do produto',
+                    ipt_apelido_produto: 'Digite o apelido do produto'
+                }
+            });
+
+
+            $("body").on("click","button[id*='remover_produto']",function(){
+                var element = $(this);
+                if(!confirm('Tem certeza que deseja remover este item?')) return false;
+                $.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_remover_produto') }}',
+                    success: function(result){
+                        if(result == "2"){
+                            alert("Esse produto já está relacionado a uma venda e por isso não poderá ser removido.");
+                        } else {
+                            alert('Produto removido com sucesso');
+                            window.location.reload(true);
+                        }
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function(){
+            $(document).on('keyup', 'table input.padrao[type=text]', function(e){
+                var obj = $(this);
+
+                $('table input[name*=' + $(this).attr('name') + ']').each(function(){
+                    if($(this).hasClass('pode') || ($(this).hasClass('pode') || !$.trim($(this).val()))) $(this).addClass('pode').val(obj.val());
+                });
+            });
+
+            $(document).on('keyup', 'table input.pode[type=text]', function(e){
+                $(this).removeClass('pode');
+            });
+
+            $(document).on('change', 'table input.padrao[type=checkbox]', function(e){
+                var obj = $(this);
+
+                $('table input[name*=' + $(this).attr('name') + ']').each(function(){
+                    if(!$(this).hasClass('padrao')) $(this).prop('checked', obj.prop('checked'));
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_produto" class='form-control get_produtos' type='text' name='nome_produto' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='inserir_novo_produto' class='btn btn-primary'>Novo</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>&nbsp;</th>
+                            <th>Categoria</th>
+                            <th>Nome</th>
+                            <th>Apelido</th>
+                            <th>SKU</th>
+                            <th>Visivel</th>
+                            <th>*</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Produto -->
+<form id='form_produto' method='POST' enctype="multipart/form-data">
+	<div class="modal fade" id="modal_editar_produto"
+		tabindex="-1" role="dialog"
+		aria-labelledby="modal_editar_produto">
+		<div class="modal-dialog" role="produto">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Produto</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- Modal novo produto -->
+<form id='form_novo_produto' method='POST' enctype="multipart/form-data">
+    <input type="hidden" name="id_produto" value="">
+
+    <div class="modal fade" id="modal_novo_produto" tabindex="-1" role="dialog" aria-labelledby="modal_novo_produto" data-backdrop="static">
+        <div class="modal-dialog" role="produto">
+            <div class="modal-content" style="width:800px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="material-icons" style="margin-top: 3px; margin-right: 0">close</i></span>
+                    </button>
+                    <h4 class="modal-title">Novo Produto</h4>
+                </div>
+                <div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Nome</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='ipt_nome_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Categoria</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <select name="ipt_id_categoria_produto" class="form-control">
+                                <option value="todos">Todos</option>
+                        {% for item in categorias %}
+                                <option value="{{ item.id_categoria }}">{{ item.nome }}</option>
+                        {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>EAN</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='ipt_ean_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>SKU</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='ipt_sku_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Descrição</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='ipt_descricao_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Visível</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <select name="ipt_visivel_produto" class="form-control">
+                                <option value="true">Sim</option>
+                                <option value="false">Não</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Apelido</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='ipt_apelido_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Qtd. Estrelas</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control numerico' type='text' name='ipt_quantidade_estrelas_produto' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Tags Associadas</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <select name="ipt_tags_produto[]" class="form-control custom" multiple="multiple">
+                        {% for item in tags %}
+                                <option value="{{ item.id_tag }}">{{ item.nome }}</option>
+                        {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Imagem</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input type="file" name="fileToUpload" id="fileToUpload">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-header precos">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="material-icons" style="margin-top: 3px; margin-right: 0">close</i></span>
+                    </button>
+                    <h4 class="modal-title precos">Inserir Preço Por Estado</h4>
+                </div>
+                <div class="modal-body precos" style="padding-bottom: 15px;width: 100%;">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr style="background-color: lightgray;">
+                                <td>&nbsp;</td>
+                                <td>P. Valor</td>
+                                <td>Venda</td>
+                                <td>Custo25</td>
+                                <td>Custo35</td>
+                                <td>Custo42</td>
+                                <td>Custo50</td>
+                                <td>Aceita Cartela</td>
+                                <td>Preço Aberto</td>
+                                <td>Créd. Cartela</td>
+                            </tr>
+                            <tr>
+                                <td style='font-weight: bold;'>PADRÃO</td>
+                                <td><input size=4 type='text' class='padrao numerico' name='ipt_ponto_valor_' value=''></input></td>
+                                <td><input size=4 type='text' class='padrao numerico money' name='ipt_venda_' value=''></input></td>
+                                <td><input size=4 type='text' class='padrao numerico money' name='ipt_custo25_' value=''></input></td>
+                                <td><input size=4 type='text' class='padrao numerico money' name='ipt_custo35_' value=''></input></td>
+                                <td><input size=4 type='text' class='padrao numerico money' name='ipt_custo42_' value=''></input></td>
+                                <td><input size=4 type='text' class='padrao numerico money' name='ipt_custo50_' value=''></input></td>
+                                <td><input size=4 type='checkbox' class='padrao' name='ipt_aceita_cartela_' value='1'></input></td>
+                                <td><input size=4 type='checkbox' class='padrao' name='ipt_preco_aberto_' value='1'></input></td>
+                                <td><input size=4 type='checkbox' class='padrao' name='ipt_cred_cartela_' value='1'></input></td>
+                            </tr>
+                            {% for item in uf %}
+                            <tr>
+                                <td style="font-weight: bold;">{{ item.nome }}</td>
+                                <td><input size=4 type='text' name='ipt_ponto_valor_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='text' name='ipt_venda_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='text' name='ipt_custo25_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='text' name='ipt_custo35_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='text' name='ipt_custo42_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='text' name='ipt_custo50_{{ item.id_uf }}' value=''></input></td>
+                                <td><input size=4 type='checkbox' name='ipt_aceita_cartela_{{ item.id_uf }}' value='1'></input></td>
+                                <td><input size=4 type='checkbox' name='ipt_preco_aberto_{{ item.id_uf }}' value='1'></input></td>
+                                <td><input size=4 type='checkbox' name='ipt_cred_cartela_{{ item.id_uf }}' value='1'></input></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary pull-left">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

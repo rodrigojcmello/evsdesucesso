@@ -1,0 +1,120 @@
+[04-Feb-2015 14:12:39] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:12:44] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:12:48] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:12:52] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:12:56] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:13:00] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:13:06] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[04-Feb-2015 14:13:15] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[22-Apr-2015 10:08:01] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[22-Apr-2015 10:09:32] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[22-Apr-2015 10:09:45] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[22-Apr-2015 10:11:15] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[22-Apr-2015 10:22:48] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:24:42] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:25:59] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:26:26] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:26:27] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:26:41] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[22-Apr-2015 10:26:42] PHP Fatal error:  Uncaught exception 'Exception' with message 'CNPJ "012.231.446/0001-06" inválido' in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php:146
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(28): Vendedor->setCnpj('012.231.446/000...')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Vendedor.php on line 146
+[18-May-2015 13:52:27] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[18-May-2015 13:52:44] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[18-May-2015 13:52:58] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "123.456.789-12" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('123.456.789-12')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[18-May-2015 14:37:07] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "454." inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('454.')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69
+[18-May-2015 14:37:24] PHP Fatal error:  Uncaught exception 'Exception' with message 'CPF "408.855.568-45" inválido' in /home/evs/public_html/lib/boleto/lib/core/Cliente.php:69
+Stack trace:
+#0 /home/evs/public_html/lib/boleto/index.php(46): Cliente->setCpf('408.855.568-45')
+#1 {main}
+  thrown in /home/evs/public_html/lib/boleto/lib/core/Cliente.php on line 69

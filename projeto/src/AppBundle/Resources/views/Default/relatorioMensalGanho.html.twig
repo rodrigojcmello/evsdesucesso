@@ -1,0 +1,99 @@
+{% extends '::admin.html.twig' %}
+
+{% set _typeDownload = 'mensalGanho' %}
+{% use 'AppBundle:Default:tmpDialogExport.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        	
+            function get_mensal_ganho()
+            {
+            	$('[name=data_venda]').datepicker().on('changeDate', function (e) {
+            		 $(this).datepicker('hide');
+            	});
+            	
+                window.tabela = $('#table').DataTable( {
+                	"destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_mensal_ganho") }}',
+                        "data": {
+                        	"sort": [[0,'desc']],
+                            'data_venda': $('[name=data_venda]').val()
+                        },
+                        "type": "POST"
+                    }
+
+                } );
+				
+            }
+            get_mensal_ganho();
+            $('.get_mensal_ganho').change(function(){ get_mensal_ganho(); });
+
+            $('#export').on('click', function () {
+                $('#dialog-export').modal( 'show' );
+            });
+        });
+    </script>
+
+    {{ block('modalJavascript') }}
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body hbl-relatory hbl-green">
+                <div class="row title-content">
+                    <div class="col-xs-4 text-center">
+                        <img src="images/niveis-hbl.jpg">
+                    </div>
+                    <div class="col-xs-8 text-center title-img">
+                        <h1 class="hbl-title">Resumo Mensal de Ganho</h1>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Ano</label>
+                                <input id="datas1" class='form-control get_mensal_ganho' type='text' name='data_venda' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type="button" id="export" class="btn btn-primary">Exportar para Excel</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>Ano</th>
+                            <th>Mês</th>
+                            <th>Acessos</th>
+                            <th>Dias de Venda</th>
+                            <th>Média Acesso</th>
+                            <th>PV Totais</th>
+                            <th>Lucro R$</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ block('modalBody') }}
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script>
+        $(document).ready(function(){
+            function get_grade_consumo_pdv(){
+                window.tabela = $('#table').DataTable({
+                    "destroy":         true,
+                    "bProcessing":     false,
+                    "bServerSide":     true,
+                    "sPaginationType": "simple",
+                    "bFilter":         false,
+                    "bInfo":           false,
+                    
+                    "ajax": {
+                        "url": '{{ path("buscar_grade_consumo_pdv") }}',
+                        "data": {
+                            "sort": [[0,'desc']],
+                            'nome_produto': $('#nome_produto').val()
+                        },
+                        "type": "POST"
+                    },
+                            
+                    "columnDefs": [{   
+                        "targets": 3,
+                        "render" : function(obj){
+                            return "<button type='button' id='editar_grade_consumo_pdv"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Personalizar</button><button id='remover_grade_consumo_pdv"+obj+"' data-id="+obj+" class='btn btn-danger'>Voltar Padrão</button>";
+                        }
+                    }]
+                } );
+            }
+            
+            get_grade_consumo_pdv();
+            
+            $("body").on("change", ".get_grade_consumo_pdv", function(){
+            	get_grade_consumo_pdv();
+            });
+        
+            $("body").on("click", "button[id*='remover_grade_consumo_pdv']", function(){
+    		var element = $(this);
+                
+    		$.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_remover_grade_consumo_pdv') }}',
+                    success: function(result){
+                        alert('Valores redefinidos para o padrão da grade.');
+                        window.location.reload(true);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+        
+            $("body").on("click", "button[id*='editar_grade_consumo_pdv']", function(){
+    		var element = $(this);
+                
+    		$.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_editar_grade_consumo_pdv') }}',
+                    success: function(result){
+                        var tit = element.parent().parent().find('td:eq(1)').html();
+                        
+                        $('#modal_grade_consumo .nome-produto-grade').html(tit);
+                        
+                        $('#modal_grade_consumo').modal('show');
+                        $('#modal_grade_consumo').on('shown.bs.modal', function() {
+                            $('#modal_grade_consumo').find('.modal-body').html(result);
+                            $("#modal_grade_consumo .money").maskMoney({ thousands:'.', decimal:',' });
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+        
+            $("#form_grade_consumo").submit(function(e) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path('admin_gravar_grade_consumo_pdv') }}',
+                    data: { dados: $("#form_grade_consumo").serialize() },
+                    success: function(data){
+                        if(data == 1){
+                            $('#modal_grade_consumo').modal('hide');
+                            alert('Valores da grade personalizados com sucesso.');
+                            window.location.reload(true);
+                        } else {
+                            alert(data);
+                        }
+                    }
+                });
+
+                e.preventDefault();
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="nome_produto">Nome</label>
+                                <input id="nome_produto" class='form-control get_grade_consumo' type='text' name='nome_produto' value=''></input>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Produto</th>
+                                <th>Personalizado</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>	
+
+    <!-- Modal Grade Consumo -->
+    <form id='form_grade_consumo' method='POST'>
+        <div class="modal fade" id="modal_grade_consumo" tabindex="-1" role="dialog" aria-labelledby="modal_grade_consumo" data-backdrop="static">
+            <div class="modal-dialog" role="grade_consumo">
+                <div class="modal-content" style="width:800px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"><i class="material-icons" style="margin-top: 3px; margin-right: 0">close</i></span>
+                        </button>
+                        <h4 class="modal-title">Grade Consumo - <span class="nome-produto-grade text-uppercase"></span></h4>
+                    </div>
+                    <div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>					
+{% endblock %}

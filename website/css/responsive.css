@@ -1,0 +1,47 @@
+@media (max-width: 800px) {
+	.top_wrapper {
+		background-image: url(../images/bg0-resp.jpg);
+	}
+
+	input, select {
+		width: 100% !important;
+	}
+
+	.contFrm textarea {
+		width: 100% !important;
+	}
+
+	.inputs input, .inputs select {
+		width: 100% !important;
+	}
+
+	.button-select-img {
+		width: 64%;
+	}
+
+	.forma-pagamento {
+		width: 50%;
+	}
+}
+
+@media (max-width: 600px) {
+	.video-container {
+		 background-size: 100% 325px;
+  		background-repeat: no-repeat;
+	}
+
+	.video-container .video iframe {
+		 height: 215px;
+	}
+}
+
+@media (max-width: 400px) {
+	.video-container {
+		 background-size: 100% 290px;
+  		background-repeat: no-repeat;
+	}
+
+	.video-container .video iframe {
+		 height: 215px;
+	}
+}

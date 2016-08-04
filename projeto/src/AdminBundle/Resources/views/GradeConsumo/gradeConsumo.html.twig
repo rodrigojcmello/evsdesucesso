@@ -1,0 +1,250 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    <style>
+
+        .combo_categoria {
+            width: 150px;
+        }
+
+        .combo_produto   {
+            width: 150px;
+        }
+        .grade_quant {
+            width:100px;
+        }
+        .grade_descricao {
+            width:180px;
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script>
+        $(document).ready(function(){
+            function carrega_categorias(){
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path('admin_carrega_categorias') }}',
+                    data: {},
+                    success: function(data){
+                        var json = $.parseJSON(data);
+                        $('.carrega_categoria').append("<option value=''></option>");
+                        $(json).each(function(i,val){
+                            $('.carrega_categoria').append("<option value='"+val.id_categoria+"'>"+val.nome+"</option>");
+                        });
+                        $('.carrega_categoria').chosen();
+                    }
+                });
+            }
+
+            function carrega_produtos(){
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path('admin_carrega_produtos') }}',
+                    data: {},
+                    success: function(data){
+                        var json = $.parseJSON(data);
+                        $('.carrega_produto').append("<option value=''></option>");
+                        $(json).each(function(i,val){
+                            $('.carrega_produto').append("<option value='"+val.id_produto+"'>"+val.nome+"</option>");
+                        });
+                        $('.carrega_produto').chosen();
+
+                    }
+                });
+            }
+
+            (function($) {
+                AddTableRowGradeConsumo = function() {
+                    var i= $('#table_grade_consumo #new_line tr.grade_consumo').length;
+                    var newRow = $("<tr class='grade_consumo'>");
+                    var cols = "";
+
+                    cols += '<td><input type="hidden" id="grade_consumo_id_grade_consumo_'+i+'" name="grade_consumo[id_grade_consumo]['+i+']" value=""><select id="grade_consumo_categoria_'+i+'" name="grade_consumo[categoria]['+i+']" class="form-control carrega_categoria"></select></td>';
+                    cols += '<td><select id="grade_consumo_produto_especifico_'+i+'" name="grade_consumo[produto_especifico]['+i+']" class="form-control carrega_produto"></select></td>';
+                    cols += '<td><input type="text" id="grade_consumo_quantidade_'+i+'" name="grade_consumo[quantidade]['+i+']" class="form-control"></td>';
+                    cols += '<td><input type="text" id="grade_consumo_descricao_'+i+'" name="grade_consumo[descricao]['+i+']" class="form-control taxa"></td>';
+                    cols += '<td><button class="btn btn-danger" onclick="RemoveTableRow(this)" type="button">-</button></td>';
+                    cols += '<td>&nbsp;</td>';
+
+                    newRow.append(cols);
+                    $("#new_line").append(newRow);
+                    i++;
+                    carrega_categorias();
+                    carrega_produtos();
+                    return false;
+                };
+            })(jQuery);
+
+            (function($) {
+                RemoveTableRow = function(handler) {
+                    if(!confirm('Tem certeza que deseja remover este item?')) return false;
+                    
+                    var tr = $(handler).closest('tr');
+
+                    tr.fadeOut(400, function(){ 
+                      tr.remove(); 
+                    }); 
+
+                    return false;
+                };
+            })(jQuery);
+        	
+            function get_grade_consumo(){
+                window.tabela = $('#table').DataTable( {
+                    "destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_grade_consumo") }}',
+                        "data": {
+                            "sort": [[0,'desc']],
+                            'nome_produto': $('#nome_produto').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                        {"targets" : 2,
+                            "render" : function (obj) {
+                                    return "<button type='button' id='editar_grade_consumo"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Gerenciar</button><button id='remover_grade_consumo"+obj+"' data-id="+obj+" class='btn btn-danger'>Remover</button>";
+                            }
+
+                        }
+                    ]
+                } );
+            }
+            
+            get_grade_consumo();
+            
+            $("body").on("change",".get_grade_consumo",function(){
+            	get_grade_consumo();
+            });
+        
+            $("body").on("click","button[id*='remover_grade_consumo']",function(){
+    		var element = $(this);
+                
+                if(!confirm('Tem certeza que deseja remover este item?')) return false;
+                
+    		$.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_remover_grade_consumo') }}',
+                    success: function(result){
+                        alert('Grade removida com sucesso');
+                        window.location.reload(true);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+        
+            $("body").on("click","button[id*='editar_grade_consumo']",function(){
+                var element = $(this);
+                $.ajax({
+                    data: { id: element.attr('data-id') },
+                    method: 'post',
+                    url: '{{ path('admin_editar_grade_consumo') }}',
+                    success: function(result){
+                        $('#modal_grade_consumo').modal('show');
+                        $('#modal_grade_consumo').on('shown.bs.modal', function() {
+                            $('.montar_form_grade_consumo').remove();
+                            $('#modal_grade_consumo').find('.modal-body').append(result);
+                        });
+                    },
+                    error: function(jqXHR, textStatus, errorThrown){
+                        alert('Erro = '+errorThrown);
+                    }
+                });
+            });
+
+            $("#form_grade_consumo").validate({
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('admin_gravar_grade_consumo') }}',
+                        data: { dados: $("#form_grade_consumo").serialize() },
+                        success: function(data){
+                            if(data == 1){
+                                $('#modal_grade_consumo').modal('hide');
+                                alert('Grade incluída com sucesso');
+                                window.location.reload(true);
+                            } else {
+                                alert(data);
+                            }
+                        }
+                    });
+                },
+                rules: {
+                    id_produto: {
+                        required: true,
+                        minlength: 1
+                    }
+                },
+                messages: {
+                    id_produto: {
+                        required: 'Selecione um produto',
+                        minlength: 'Selecione um produto'
+                    }
+                }
+            });
+        });
+    </script>
+
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_produto" class='form-control get_grade_consumo' type='text' name='nome_produto' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='editar_grade_consumo' class='btn btn-primary'>Nova</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <hr style="margin-top: 15px">
+                    
+                    <table id='table'>
+                        <thead>
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Produto</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal Grade Consumo -->
+    <form id='form_grade_consumo' method='POST'>
+	<div class="modal fade" id="modal_grade_consumo" tabindex="-1" role="dialog" aria-labelledby="modal_grade_consumo" data-backdrop="static">
+            <div class="modal-dialog" role="grade_consumo">
+                <div class="modal-content" style="width:800px;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="material-icons" style="margin-top: 3px; margin-right: 0">close</i></span></button>
+                        <h4 class="modal-title">Grade Consumo</h4>
+                    </div>
+                    <div class="modal-body" style="padding-bottom: 15px;width: 100%;"></div>
+                </div>
+            </div>
+	</div>
+    </form>					
+{% endblock %}

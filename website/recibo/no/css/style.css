@@ -1,0 +1,119 @@
+/* MINI RESET PAGE */
+body {
+	font-family: Khmer UI, Myriad Pro, Verdana;
+	color: #555;
+}
+
+/* CSS Normal */
+.container {
+	width: 800px;
+	margin: 0 auto;
+	background-color: #eee;
+	border: 1px solid #aaa;
+	padding: 20px 20px 0 20px;
+}
+
+	.container .header {
+		height: 80px;
+		overflow: hidden;
+		margin-bottom: 10px;
+	}
+
+		.container .header h1 {
+			float: left;
+			margin: 0;
+			font-weight: normal;
+			font-size: 70px;
+			line-height: 80px;
+			text-transform: uppercase;
+			color: #aaa;
+		}
+
+		.container .header .v-total {
+			width: 25%;
+			height: 60px;
+			float: right;
+			background-color: rgba(204, 204, 204, 0.6);
+			padding: 10px;
+			text-align: center;
+			border-radius: 5px;
+		}
+
+			.container .header .v-total .real {
+				font-size: 30px;
+				float: left;
+			}
+
+			.container .header .v-total .total {
+				font-size: 46px;
+				line-height: 60px;
+			}
+
+	.container .content {}
+
+		.container .content label {
+			width: 100%;
+			height: 30px;
+			display: block;
+			padding-bottom: 7px;
+			margin-bottom: 5px;
+			border-bottom: 1px dashed #ccc;
+		}
+
+			.container .content label span {
+				line-height: 30px;
+				font-size: 16px;
+			}
+
+			.container .content label input[type="text"] {
+				width: 80%;
+				height: 30px;
+				padding: 0 7px;
+				float: right;
+				font-size: 14px;
+				color: #888;
+				border: 1px solid #aaa;
+			}
+
+		.container .content .infos {
+			min-height: 70px;
+			margin-top: 10px;
+		}
+
+			.container .content .infos .logo {
+				float: left;
+				max-width: 35%;
+				overflow: hidden;
+			}
+
+			.container .content .infos .dados {
+				max-width: 65%;
+				float: right;
+				overflow: hidden;
+			}
+
+			.container .content .infos .dados .ass {
+				width: 100%;
+				border-bottom: 1px solid #aaa;
+				text-align: center;
+				margin: 25px 0px 0px;
+			}
+
+	.container .footer {
+		height: 70px;
+		margin-top: 10px;
+		font-size: 16px;
+	}
+
+	.container .footer a {
+		color: #555;
+	}
+
+		.container .footer .left {
+			float: left;
+		}
+
+		.container .footer .right {
+			float: right;
+		}
+

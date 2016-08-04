@@ -1,0 +1,39 @@
+{
+  "name": "bootstrap-strength-meter",
+  "description": "Twitter Bootstrap plugin using Password Score for simple password strength meters.",
+  "homepage": "http://davidstutz.github.io/bootstrap-strength-meter/",
+  "keywords": [
+    "js",
+    "css",
+    "bootstrap",
+    "jquery",
+    "password"
+  ],
+  "main": [
+    "./dist/js/bootstrap-strength-meter.js"
+  ],
+  "dependencies": {
+    "password-score": ">= 1.0.0",
+    "jquery": ">= 1.11.0",
+    "bootstrap": ">= 2.3.2"
+  },
+  "ignore": [
+    "docs/.*",
+    "password-score/.*",
+    "*.html",
+    "*.git*",
+    "*.md",
+    "*.png",
+    "*.php"
+  ],
+  "_release": "d04b4e9e40",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "d04b4e9e40f515e5f5499a6ad933639cfbb050ce"
+  },
+  "_source": "git://github.com/davidstutz/bootstrap-strength-meter.git",
+  "_target": "*",
+  "_originalSource": "davidstutz/bootstrap-strength-meter",
+  "_direct": true
+}

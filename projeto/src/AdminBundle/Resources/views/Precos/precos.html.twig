@@ -1,0 +1,143 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        	
+            function get_tabela_precos()
+            {
+            	
+                window.tabela = $('#table').DataTable( {
+                	"destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_tabela_precos") }}',
+                        "data": {
+                        	"sort": [[0,'desc']],
+                        	'nome_classe': $('#nome_classe').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                                    {"targets" : 3,
+                                        "render" : function (obj) {
+                                        	return "<button type='button' id='editar_tabela_preco"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Editar</button>";
+                                        }
+
+                                    }
+                                ]
+
+                } );
+				
+            }
+            get_tabela_precos();
+            $("body").on("change",".get_tabela_precos",function(){
+            	get_tabela_precos();
+        	});
+        
+        $("body").on("click","button[id*='editar_tabela_preco']",function(){
+    		var element = $(this);
+    		$.ajax({
+    			data: {
+    				id: element.attr('data-id') },
+    			method: 'post',
+    			url: '{{ path('admin_editar_tabela_preco') }}',
+    			success: function(result){
+    				$('#modal_editar_tabela_preco').modal('show');
+    				$('#modal_editar_tabela_preco').on('shown.bs.modal', function() {
+    					$('.montar_form_tabela_preco').remove();
+    				    $('#modal_editar_tabela_preco').find('.modal-body').append(result);
+    				  });
+    			},
+    			error: function(jqXHR, textStatus, errorThrown){
+    				
+    					alert('Erro = '+errorThrown);
+    			}
+    			});
+    	});
+        
+        $("#form_tabela_preco").submit(function(e) {
+
+            $.ajax({
+                   type: "POST",
+                   url: '{{ path('admin_gravar_tabela_preco') }}',
+                   data: { dados: $("#form_tabela_preco").serialize() },
+                   success: function(data)
+                   {
+                	   	$('#modal_editar_tabela_preco').modal('hide');
+                	   	window.location.reload(true);
+                   }
+                 });
+
+            e.preventDefault();
+        });
+        
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Classe</label>
+                                <select id="nome_classe" name="nome_classe" class="form-control get_tabela_precos">
+                                {% for item in classes %}
+								<option value="{{ item.id_classe_ponto_de_venda }}">{{ item.descricao }}</option> {%
+								endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Início</th>
+                            <th>Fim</th>  
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Tabela Preço -->
+<form id='form_tabela_preco' method='POST'>
+	<div class="modal fade" id="modal_editar_tabela_preco" tabindex="-1" role="dialog" aria-labelledby="modal_editar_tabela_preco" data-backdrop="static">
+		<div class="modal-dialog" role="tabela">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Tabela Preço</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>						
+{% endblock %}

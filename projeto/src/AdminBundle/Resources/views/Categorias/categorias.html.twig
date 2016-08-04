@@ -1,0 +1,235 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        	
+            function get_categorias()
+            {
+            	
+                window.tabela = $('#table').DataTable( {
+                	"destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_categorias") }}',
+                        "data": {
+                        	"sort": [[0,'desc']],
+                        	'nome_categoria': $('#nome_categoria').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                                    {"targets" : 3,
+                                        "render" : function (obj) {
+                                        	return "<button type='button' id='editar_categoria"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Editar</button><button id='remover_categoria"+obj+"' data-id="+obj+" class='btn btn-danger'>Remover</button>";
+                                        }
+
+                                    }
+                                ]
+
+                } );
+				
+            }
+            get_categorias();
+            $("body").on("change",".get_categorias",function(){
+            	get_categorias();
+            });
+        
+            $("body").on("click","button[id*='editar_categoria']",function(){
+    		var element = $(this);
+    		$.ajax({
+    			data: {
+    				id: element.attr('data-id') },
+    			method: 'post',
+    			url: '{{ path('admin_editar_categoria') }}',
+    			success: function(result){
+    				$('#modal_editar_categoria').modal('show');
+    				$('#modal_editar_categoria').on('shown.bs.modal', function() {
+    					$('.montar_form_categoria').remove();
+    				    $('#modal_editar_categoria').find('.modal-body').append(result);
+    				  });
+    			},
+    			error: function(jqXHR, textStatus, errorThrown){
+    				
+    					alert('Erro = '+errorThrown);
+    			}
+    			});
+    	});
+        
+        $("body").on("click","button[id='inserir_nova_categoria']",function(){
+        	$('#modal_nova_categoria').modal('show');
+    	});
+        
+        $("#form_categoria").submit(function(e) {
+
+            $.ajax({
+                   type: "POST",
+                   url: '{{ path('admin_gravar_categoria') }}',
+                   data: { dados: $("#form_categoria").serialize() },
+                   success: function(data)
+                   {
+                	   	$('#modal_editar_categoria').modal('hide');
+                	   	window.location.reload(true);
+                   }
+                 });
+
+            e.preventDefault();
+        });
+        
+        $("#form_nova_categoria").submit(function(e) {
+
+            $.ajax({
+                   type: "POST",
+                   url: '{{ path('admin_inserir_nova_categoria') }}',
+                   data: { dados: $("#form_nova_categoria").serialize() },
+                   success: function(data)
+                   {
+                	   	$('#modal_nova_categoria').modal('hide');
+                	   	window.location.reload(true);
+                   }
+                 });
+
+            e.preventDefault();
+        });
+
+        
+        $("body").on("click","button[id*='remover_categoria']",function(){
+    		var element = $(this);
+                if(!confirm('Tem certeza que deseja remover este item?')) return false;
+    		$.ajax({
+    			data: { id: element.attr('data-id') },
+    			method: 'post',
+    			url: '{{ path('admin_remover_categoria') }}',
+    			success: function(result){
+    				alert('Categoria removida com sucesso');
+    				window.location.reload(true);
+    			},
+    			error: function(jqXHR, textStatus, errorThrown){
+    				
+    					alert('Erro = '+errorThrown);
+    			}
+    			});
+    	});
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_categoria" class='form-control get_categorias' type='text' name='nome_categoria' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='inserir_nova_categoria' class='btn btn-primary'>Nova</button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Categoria pai</th>
+                            <th>Descrição</th>  
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Categoria -->
+<form id='form_categoria' method='POST'>
+	<div class="modal fade" id="modal_editar_categoria" tabindex="-1" role="dialog" aria-labelledby="modal_editar_categoria" data-backdrop="static">
+		<div class="modal-dialog" role="categoria">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Categoria</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- Modal nova categoria -->
+<form id='form_nova_categoria' method='POST'>
+	<div class="modal fade" id="modal_nova_categoria"
+		tabindex="-1" role="dialog"
+		aria-labelledby="modal_nova_categoria">
+		<div class="modal-dialog" role="anfitriao">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Nova Categoria</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				<div class='row'>
+						<div class='col-md-3'>
+							<label>Nome</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<input class='form-control' type='text' name='novo_nome_categoria' value=''></input>
+    					</div>
+       				</div>
+    				<div class='row'>
+						<div class='col-md-3'>
+							<label>Categoria pai</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<select name="novo_id_categoria_pai" class="form-control">
+                                    <option value="todos">Todos</option>
+                                    {% for item in categorias %}
+                                        <option value="{{ item.id_categoria }}">{{ item.nome }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Descricao</label>
+    					</div>
+    					<div class='col-md-6'>
+    						<input class='form-control' type='text' name='nova_descricao_categoria' value=''></input>
+    					</div>
+       				</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>							
+{% endblock %}

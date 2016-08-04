@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Controle de Inventário</title>
+
+	<style type="text/css">
+		@font-face {
+			font-family: Hobo;
+			src: url(http://www.shoppinghbl.com.br/eli/font/HOBON.TTF);
+		}
+
+		.report {
+			width: 1000px;
+			margin: 0 auto;
+			font-family: Hobo;
+		}
+
+			.report .header {
+				height: 200px;
+			}
+
+				.report .header .logo {
+					width: 400px;
+					float: left;
+				}
+
+					.report .header .logo img {
+						width: 100%;
+					}
+
+				.report .header .type {
+					width: 600px;
+					float: right;
+					color: #ca2523;
+				}
+
+					.name-page {
+						font-size: 50px;
+						line-height: 0px;
+					}
+
+				.report .header .customer {
+					border: 2px solid #ca2523;
+					border-radius: 8px;
+					padding: 8px 5px;
+					font-size: 20px;
+				}
+
+					.report .header .customer .name-costumer {
+						font: 20px Arial;
+						font-weight: bold;
+						text-transform: uppercase;
+						border: none;
+						margin-left: 15px;
+						color:#000;
+					}
+
+			table.invetario {
+				width: 100%;
+				font-size: 20px;
+				color: #ca2523;
+				border-collapse: collapse;
+				border-radius: 5px;
+			}	
+
+				table.invetario .value {
+					color: #000;
+				}
+
+				table.invetario tr td, table.invetario tr th {
+					color: #000;
+					padding: 3px;
+					border: 2px solid #ca2523;
+					text-align: right;
+					font-weight: normal;
+				}
+				table.invetario tr td{
+					background-image: url('../money.png');
+					background-repeat: no-repeat;
+					background-position: 3px 50%;
+				}
+				table.invetario tr.no-money td{ background: none; }
+				table.invetario tr.total{ background-color: #eebdbd; }
+				table.invetario tr th{
+					color: #ca2523;
+					text-align: left;
+				}
+
+
+	</style>
+</head>
+<body>
+	<div class="report">
+		<div class="header">
+			<div class="logo" title="EVS De Sucesso">
+				<img src="../logo.png" alt="EVS De Sucesso">
+			</div>
+			
+			<div class="type">
+				<h1 class="name-page">Controle de Inventário</h1>
+				<div class="customer">
+					Nome: <span class="name-costumer">Teste teste</span>
+				</div>
+			</div>
+		</div>
+
+		<table class="invetario">
+			<tr class="no-money">
+				<th>Data</th>
+				<td>30/12/2014</td>
+				<td>30/12/2014</td>
+				<td>30/12/2014</td>
+				<td>30/12/2014</td>
+				<td>30/12/2014</td>
+				<td>30/12/2014</td>
+			</tr>
+			<tr>
+				<th>Produto</th>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+			</tr>
+			<tr>
+				<th>Produto</th>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+			</tr>
+			<tr>
+				<th>Produto</th>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+			</tr>
+			<tr>
+				<th>Produto</th>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+			</tr>
+			<tr class="total no-money">
+				<th>Totais</th>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+				<td>150,00</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

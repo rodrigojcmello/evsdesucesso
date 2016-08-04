@@ -1,0 +1,1139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9c3dd7fb-d15f-429a-8171-b2ced43335c9" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/evs.iml" afterPath="$PROJECT_DIR$/.idea/evs.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/admin.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Resources/views/base.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/security.yml" afterPath="$PROJECT_DIR$/app/config/security.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/config/services.yml" afterPath="$PROJECT_DIR$/app/config/services.yml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/AnfitrioesController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/AnfitrioesController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Controller/PontoDeVendaController.php" afterPath="$PROJECT_DIR$/src/AdminBundle/Controller/PontoDeVendaController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Anfitrioes/anfitrioes.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Anfitrioes/anfitrioes.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/GradeConsumo/gradeConsumo.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/GradeConsumo/gradeConsumo.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/PontoDeVenda/pdv.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/PontoDeVenda/pdv.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Produtos/produtos.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Produtos/produtos.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Tags/tags.html.twig" afterPath="$PROJECT_DIR$/src/AdminBundle/Resources/views/Tags/tags.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Anfitriao.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Anfitriao.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/lib/js/general.js" afterPath="$PROJECT_DIR$/web/lib/js/general.js" />
+    </list>
+    <ignored path="evs.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="ComposerSettings">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <pharPath>C:\Bitnami\wappstack-5.6.21-3\php\composer.phar</pharPath>
+    <phpPath>php.exe</phpPath>
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="evs" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/exportRelatorioVendasDiario.twig" />
+        <option value="$PROJECT_DIR$/vendor/phpoffice/phpexcel/Classes/PHPExcel.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Util.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/tmpDialogExport.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioDetalhadoAtividadesDiario.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioDetalhadoVendasDiario.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioMensalGanho.html.twig" />
+        <option value="$PROJECT_DIR$/composer.json" />
+        <option value="C:/Bitnami/wappstack-5.6.21-3/php/php.ini" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig" />
+        <option value="$PROJECT_DIR$/app/config/services.yml" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Twig/Extension/AppExtension.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/home.html.twig" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/Anfitriao.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/AnfitrioesController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/GradeConsumoController.php" />
+        <option value="$PROJECT_DIR$/src/AdminBundle/Controller/PontoDeVendaController.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="localhost" id="3562f697-6dc7-45b3-9596-49b1b672931d" name="Locahost Symfony" port="8000" />
+    </servers>
+  </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="C:\Users\Erick Tatsui\Desktop\Repositories\CM2 Tech\evs" selected_validation_type="LOCAL" web_path_to_validation_script="http://127.0.0.1:8000" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 5.6">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/twig/extensions" />
+      <path value="$PROJECT_DIR$/vendor/pagerfanta/pagerfanta" />
+      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
+      <path value="$PROJECT_DIR$/vendor/jms/parser-lib" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/twig/twig" />
+      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
+      <path value="$PROJECT_DIR$/vendor/javiereguiluz/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
+      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
+      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
+      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
+      <path value="$PROJECT_DIR$/vendor/fzaninotto/faker" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/jsonp-callback-validator" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
+      <path value="$PROJECT_DIR$/vendor/phpcollection/phpcollection" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
+      <path value="$PROJECT_DIR$/vendor/phpoffice/phpexcel" />
+      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
+      <path value="$PROJECT_DIR$/vendor/kriansa/openboleto" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>CSS</id>
+          </State>
+          <State>
+            <id>Code SmellPHP</id>
+          </State>
+          <State>
+            <id>Code StylePHP</id>
+          </State>
+          <State>
+            <id>Code style issuesCSS</id>
+          </State>
+          <State>
+            <id>Control flow issuesJavaScript</id>
+          </State>
+          <State>
+            <id>DOM issuesJavaScript</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>Invalid elementsCSS</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>Probable bugsCSS</id>
+          </State>
+          <State>
+            <id>Probable bugsPHP</id>
+          </State>
+          <State>
+            <id>SQL</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Probable bugsPHP</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="evs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AdminBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.25073457" />
+    <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="837" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="162" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="161" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="163" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="837" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+  </component>
+  <component name="RunManager" selected="PHP Web Application.Local Server Symfony">
+    <configuration default="true" type="AppEnginePhpConfigurationType" factoryName="App Engine for PHP">
+      <method />
+    </configuration>
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="8000">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" server_name="Locahost Symfony" session_id="Tatsui">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Locahost Symfony" start_url="/exportar-relatorio-vendas-diario">
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="server debug" type="PhpRemoteDebugRunConfigurationType" factoryName="PHP Remote Debug" singleton="true" server_name="Locahost Symfony" session_id="10144">
+      <method />
+    </configuration>
+    <configuration default="false" name="Local Server Symfony" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Locahost Symfony">
+      <method />
+    </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="PHP Remote Debug.server debug" />
+      <item index="1" class="java.lang.String" itemvalue="PHP Web Application.Local Server Symfony" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9c3dd7fb-d15f-429a-8171-b2ced43335c9" name="Default" comment="" />
+      <created>2411574617173</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>2411574617173</updated>
+      <workItem from="2411574620090" duration="257000" />
+      <workItem from="1464894186504" duration="7323000" />
+      <workItem from="1464949242692" duration="18836000" />
+      <workItem from="1465041614238" duration="40598000" />
+      <workItem from="1465217057898" duration="17318000" />
+      <workItem from="1465257035544" duration="5185000" />
+      <workItem from="1465302748354" duration="36574000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="126091000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38297874" sideWeight="0.5075643" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2651391" sideWeight="0.4924357" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2823344" sideWeight="0.49707174" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38297874" sideWeight="0.5075643" order="10" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2823344" sideWeight="0.49707174" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25718608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2651391" sideWeight="0.4924357" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AppBundle/Util.php</url>
+          <line>173</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/PontoDeVendaController.php</url>
+          <line>442</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/src/AdminBundle/Controller/GradeConsumoPdvController.php</url>
+          <line>37</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="61" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/config/config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/VendaProduto.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5340">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Bundle/FrameworkBundle/Resources/config/router_dev.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Debug/DebugClassLoader.php" />
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpoffice/phpexcel/Classes/PHPExcel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/phpoffice/phpexcel/Classes/PHPExcel/IOFactory.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="43" column="6" selection-start-line="43" selection-start-column="6" selection-end-line="43" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Debug/ErrorHandler.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/liuggio/ExcelBundle/LiuggioExcelBundle.php" />
+    <entry file="file://$PROJECT_DIR$/vendor/liuggio/ExcelBundle/Factory.php" />
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Util.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="170" column="5" selection-start-line="170" selection-start-column="5" selection-end-line="170" selection-end-column="5" />
+          <folding>
+            <element signature="e#29#63#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/tmpDialogExport.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="20" column="62" selection-start-line="20" selection-start-column="62" selection-end-line="20" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioMensalGanho.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="45" column="15" selection-start-line="45" selection-start-column="15" selection-end-line="45" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioDetalhadoAtividadesDiario.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="41" column="12" selection-start-line="41" selection-start-column="12" selection-end-line="43" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/Default/relatorioDetalhadoVendasDiario.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.lock">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="1532" column="25" selection-start-line="1532" selection-start-column="25" selection-end-line="1532" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date_c.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="316" column="54" selection-start-line="316" selection-start-column="54" selection-end-line="316" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Helper/TagHelper.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/GradeConsumoPdvController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="39" column="57" selection-start-line="39" selection-start-column="57" selection-end-line="39" selection-end-column="57" />
+          <folding>
+            <marker date="1464370959147" expanded="true" signature="1481:2048" ph="SELECT c.nom... categoria" />
+            <marker date="1464370959147" expanded="true" signature="3462:3558" ph="SELECT id_pr... grade_consumo" />
+            <marker date="1464370959147" expanded="true" signature="4034:4196" ph="UPDATE item_... " />
+            <marker date="1464370959147" expanded="true" signature="4323:4705" ph="SELECT id_gr... grade_consumo_pdv" />
+            <marker date="1464370959147" expanded="true" signature="4543:4693" ph="SELECT id_gr... grade_consumo" />
+            <marker date="1464370959147" expanded="true" signature="8239:8662" ph="SELECT venda... item_tabela_precos" />
+            <marker date="1464370959147" expanded="true" signature="8964:9174" ph="SELECT preco... item_pdv_tabela_precos" />
+            <marker date="1464370959147" expanded="false" signature="9492:9510" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="9511:10297" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="9574:9742" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="9805:10274" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="9947:10247" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="10403:10825" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="10431:10774" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="10460:10745" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="10816:10825" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="10874:11885" ph="SELECT gc.id... grade_consumo" />
+            <marker date="1464370959147" expanded="true" signature="12103:12870" ph="..." />
+            <marker date="1464370959147" expanded="true" signature="12401:12843" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="84" selection-start-line="13" selection-start-column="84" selection-end-line="13" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/AppExtension.php" />
+    <entry file="file://$PROJECT_DIR$/var/cache/dev/classes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="3653" column="15" selection-start-line="3653" selection-start-column="15" selection-end-line="3653" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/twig/twig/lib/Twig/Extension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Anfitrioes/anfitrioes.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="129" column="38" selection-start-line="126" selection-start-column="4" selection-end-line="129" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/services.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/Security/Core/Security.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="54" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="54" />
+          <folding>
+            <element signature="e#7#236#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Session/SessionInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/FOSRestBundle.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="15" column="73" selection-start-line="15" selection-start-column="73" selection-end-line="15" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/rest-bundle/FOS/RestBundle/Controller/FOSRestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+          <folding>
+            <element signature="e#299#356#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpFoundation/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="737" column="20" selection-start-line="737" selection-start-column="20" selection-end-line="737" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Resources/views/Default/home.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="24" selection-start-line="7" selection-start-column="24" selection-end-line="7" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Twig/Extension/AppExtension.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+          <folding>
+            <element signature="e#43#91#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="128" column="20" selection-start-line="128" selection-start-column="20" selection-end-line="128" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/doctrine/common/lib/Doctrine/Common/Persistence/ObjectRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="42" column="6" selection-start-line="42" selection-start-column="6" selection-end-line="42" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Bitnami/wappstack-5.6.21-3/php/php.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="1998" column="7" selection-start-line="1998" selection-start-column="0" selection-end-line="2003" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Anfitriao.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="233" selection-end-column="0" />
+          <folding>
+            <element signature="e#36#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/app_dev.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/HttpKernel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="69" column="63" selection-start-line="69" selection-start-column="63" selection-end-line="69" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="103" column="8" selection-start-line="103" selection-start-column="8" selection-end-line="105" selection-end-column="50" />
+          <folding>
+            <marker date="1465249831442" expanded="true" signature="3113:3147" ph="select * fro... anfitriao" />
+            <marker date="1465249831442" expanded="true" signature="5378:5956" ph="select v.dat... venda" />
+            <marker date="1465249831442" expanded="true" signature="8580:8618" ph="select * fro... venda_produto" />
+            <marker date="1465249831442" expanded="true" signature="9533:10505" ph="select cli.n... venda" />
+            <marker date="1465249831442" expanded="true" signature="11434:11472" ph="select * fro... venda_produto" />
+            <marker date="1465249831442" expanded="true" signature="12367:13147" ph="select date_... venda" />
+            <marker date="1465249831442" expanded="true" signature="28640:28747" ph="SELECT a.* F... anfitriao" />
+            <marker date="1465249831442" expanded="true" signature="28999:29066" ph="SELECT c.* F... categoria" />
+            <marker date="1465249831442" expanded="true" signature="29389:29625" ph="SELECT cpdv.... classe_ponto_de_venda" />
+            <marker date="1465249831442" expanded="true" signature="29961:30136" ph="SELECT c.* F... cliente" />
+            <marker date="1465249831442" expanded="true" signature="30481:30727" ph="SELECT itb.*... item_tabela_precos" />
+            <marker date="1465249831442" expanded="true" signature="31126:31246" ph="SELECT pdv.*... ponto_de_venda" />
+            <marker date="1465249831442" expanded="true" signature="31582:31890" ph="SELECT p.* F... produto" />
+            <marker date="1465249831442" expanded="true" signature="32287:32474" ph="SELECT cd.* cartela_digital" />
+            <marker date="1465249831442" expanded="true" signature="32807:32981" ph="SELECT e.* F... estrelas" />
+            <marker date="1465249831442" expanded="true" signature="33325:33513" ph="SELECT i.* F... item_pdv_tabela_precos" />
+            <marker date="1465249831442" expanded="true" signature="33890:34012" ph="SELECT tp.* tabela_precos" />
+            <marker date="1465249831442" expanded="true" signature="34264:34325" ph="SELECT t.* F... tag" />
+            <marker date="1465249831442" expanded="true" signature="34547:34609" ph="SELECT gc.* grade_consumo" />
+            <marker date="1465249831442" expanded="true" signature="34862:34997" ph="SELECT gcp.*... grade_consumo_pdv" />
+            <marker date="1465249831442" expanded="true" signature="35259:35332" ph="SELECT cbi.*... cliente_bioimpedancia" />
+            <marker date="1465249831442" expanded="true" signature="35564:35628" ph="SELECT cm.* cliente_medidas" />
+            <marker date="1465249831442" expanded="true" signature="35857:35918" ph="SELECT cf.* cliente_foto" />
+            <marker date="1465249831442" expanded="true" signature="36157:36232" ph="SELECT hpc.*... historico_padrao_custos" />
+            <marker date="1465249831442" expanded="true" signature="36463:36526" ph="SELECT cm.* custos_mensais" />
+            <marker date="1465249831442" expanded="true" signature="36749:36812" ph="SELECT pi.* produto_imagem" />
+            <marker date="1465249831442" expanded="true" signature="37029:37082" ph="SELECT p.* F... produto" />
+            <marker date="1465249831442" expanded="true" signature="37294:37342" ph="SELECT u.* F... uf" />
+            <marker date="1465249831442" expanded="true" signature="37574:37638" ph="SELECT fp.* forma_pagamento" />
+            <marker date="1465249831442" expanded="true" signature="37869:37932" ph="SELECT oe.* origem_estrela" />
+            <marker date="1465249831442" expanded="true" signature="38163:38226" ph="SELECT ti.* tipo_indicacao" />
+            <marker date="1465249831442" expanded="true" signature="38541:38928" ph="SELECT tp1.*... tag_produto" />
+            <marker date="1465249831442" expanded="true" signature="39320:39557" ph="SELECT v.* F... venda" />
+            <marker date="1465249831442" expanded="true" signature="39898:40205" ph="SELECT vp.* venda_produto" />
+            <marker date="1465249831442" expanded="true" signature="41352:41394" ph="SELECT * FRO... cliente" />
+            <marker date="1465249831442" expanded="true" signature="42207:42245" ph="SELECT * FRO... venda" />
+            <marker date="1465249831442" expanded="true" signature="43332:43374" ph="SELECT * FRO... cartela_digital" />
+            <marker date="1465249831442" expanded="true" signature="44327:44362" ph="SELECT * FRO... estrelas" />
+            <marker date="1465249831442" expanded="true" signature="45797:45845" ph="SELECT * FRO... cliente_bioimpedancia" />
+            <marker date="1465249831442" expanded="true" signature="47084:47126" ph="SELECT * FRO... cliente_medidas" />
+            <marker date="1465249831442" expanded="true" signature="47933:47972" ph="SELECT * FRO... cliente_foto" />
+            <marker date="1465249831442" expanded="true" signature="48649:48690" ph="SELECT * FRO... custos_mensais" />
+            <marker date="1465249831442" expanded="true" signature="49508:49557" ph="SELECT * FRO... item_pdv_tabela_precos" />
+            <marker date="1465249831442" expanded="true" signature="51282:51355" ph="SELECT * FRO... venda_produto" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/PontoDeVenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="10" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ClassePontoDeVenda.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-156">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+          <folding>
+            <element signature="e#36#84#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/DefaultController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+          <folding>
+            <element signature="e#42#99#0#PHP" expanded="true" />
+            <element signature="e#434#471#1#PHP" expanded="true" />
+            <element signature="e#609#645#1#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/TagsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1446">
+          <caret line="214" column="16" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
+          <folding>
+            <marker date="1464370959201" expanded="true" signature="845:873" ph="select * fro... tag" />
+            <marker date="1464370959201" expanded="true" signature="1372:1637" ph="select t2.no... tag" />
+            <marker date="1464370959201" expanded="true" signature="5802:5963" ph="select produ... produto" />
+            <marker date="1464370959201" expanded="true" signature="6099:6158" ph="select tp.id... tag_produto" />
+            <marker date="1464370959201" expanded="true" signature="6403:6722" ph="select t2.no... tag" />
+            <marker date="1464370959201" expanded="true" signature="7278:7309" ph="select * fro... tag" />
+            <marker date="1464370959201" expanded="true" signature="8481:8746" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="8510:8556" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="8583:8746" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="8649:8746" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9031:9349" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9060:9120" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9147:9349" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9226:9349" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9637:9938" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9666:9721" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9748:9938" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="9823:9938" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="10270:10371" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="10299:10358" ph="..." />
+            <marker date="1464370959201" expanded="true" signature="10572:10614" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/ProdutosController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6258">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+          <folding>
+            <marker date="1464370959188" expanded="true" signature="1039:1080" ph="select * fro... categoria" />
+            <marker date="1464370959188" expanded="true" signature="1231:1265" ph="select * fro... uf" />
+            <marker date="1464370959188" expanded="true" signature="1408:1443" ph="select * fro... tag" />
+            <marker date="1464370959188" expanded="true" signature="1877:2446" ph="SELECT pi.im... produto" />
+            <marker date="1464370959188" expanded="true" signature="14619:15012" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="14670:14756" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="14807:14981" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15054:15447" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15105:15191" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15242:15416" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15489:15900" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15540:15632" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15683:15869" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15942:16575" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="15993:16083" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="16134:16544" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="16223:16509" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="16617:17022" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="16668:16758" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="16809:16991" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17064:17513" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17115:17217" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17268:17482" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17555:17870" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17606:17704" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="17755:17870" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="18373:18877" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="18424:18670" ph="..." />
+            <marker date="1464370959188" expanded="false" signature="18504:18622" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="18721:18846" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="18968:21053" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="19004:21053" ph="..." />
+            <marker date="1464370959188" expanded="false" signature="19049:19077" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="19078:19665" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="19702:21053" ph="..." />
+            <marker date="1464370959188" expanded="false" signature="19751:19769" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="21538:23162" ph="..." />
+            <marker date="1464370959188" expanded="false" signature="21587:21605" ph="..." />
+            <marker date="1464370959188" expanded="true" signature="23266:24726" ph="..." />
+            <marker date="1464370959188" expanded="false" signature="23315:23333" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/GradeConsumoController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="252" column="72" selection-start-line="252" selection-start-column="62" selection-end-line="252" selection-end-column="72" />
+          <folding>
+            <marker date="1465477997535" expanded="true" signature="914:951" ph="select * fro... categoria" />
+            <marker date="1465477997535" expanded="true" signature="1414:1451" ph="select * fro... categoria" />
+            <marker date="1465477997535" expanded="true" signature="1937:1972" ph="select * fro... produto" />
+            <marker date="1465477997535" expanded="true" signature="2453:2698" ph="SELECT c.nom... grade_consumo" />
+            <marker date="1465477997535" expanded="true" signature="3633:3686" ph="select * fro... grade_consumo" />
+            <marker date="1465477997535" expanded="true" signature="4950:5076" ph="delete from " />
+            <marker date="1465477997535" expanded="true" signature="7255:7317" ph="select id_pr... grade_consumo" />
+            <marker date="1465477997535" expanded="true" signature="7560:7597" ph="select * fro... categoria" />
+            <marker date="1465477997535" expanded="true" signature="7743:7778" ph="select * fro... produto" />
+            <marker date="1465477997535" expanded="true" signature="7985:8882" ph="SELECT c.id_... grade_consumo" />
+            <marker date="1465477997535" expanded="true" signature="9141:9596" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9169:9314" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9198:9285" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9363:9596" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9392:9596" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9437:9596" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="9533:9596" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10056:10437" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10085:10408" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10480:10501" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10604:11047" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10633:11047" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="10988:11047" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="11323:11568" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="11509:11568" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="11852:11863" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="12041:12472" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="12174:12442" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="13080:13612" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="13109:13612" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="13495:13612" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="13997:14316" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="14181:14316" ph="..." />
+            <marker date="1465477997535" expanded="false" signature="14740:14751" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="14954:15381" ph="..." />
+            <marker date="1465477997535" expanded="true" signature="15087:15351" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/PontoDeVendaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="141" column="0" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
+          <folding>
+            <element signature="e#3170#3194#1#PHP" expanded="true" />
+            <element signature="e#3360#3381#1#PHP" expanded="true" />
+            <element signature="e#4585#4615#1#PHP" expanded="true" />
+            <marker date="1465484700499" expanded="true" signature="964:1010" ph="select * fro... classe_ponto_de_venda" />
+            <marker date="1465484700499" expanded="true" signature="1158:1188" ph="select * fro... uf" />
+            <marker date="1465484700499" expanded="true" signature="1331:1372" ph="select * fro... anfitriao" />
+            <marker date="1465484700499" expanded="true" signature="1966:2566" ph="select cpdv.... classe_ponto_de_venda" />
+            <marker date="1465484700499" expanded="true" signature="7913:8729" ph="select cpdv.... classe_ponto_de_venda" />
+            <marker date="1465484700499" expanded="true" signature="8877:8946" ph="select * fro... classe_ponto_de_venda" />
+            <marker date="1465484700499" expanded="true" signature="9106:9147" ph="select * fro... anfitriao" />
+            <marker date="1465484700499" expanded="true" signature="9309:9339" ph="select * fro... uf" />
+            <marker date="1465484700499" expanded="true" signature="10408:10685" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="10437:10478" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="10510:10685" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="10585:10685" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11060:11324" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11089:11132" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11164:11306" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11347:11623" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11376:11423" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11455:11605" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11646:11922" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11675:11722" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11754:11904" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11945:12209" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="11974:12017" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12049:12191" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12232:12531" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12261:12304" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12336:12531" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12418:12531" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12951:13273" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="12980:13025" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="13057:13273" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="13146:13273" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="13765:14108" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="13794:13847" ph="..." />
+            <marker date="1465484700499" expanded="true" signature="13879:14090" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AdminBundle/Controller/AnfitrioesController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="355" column="8" selection-start-line="355" selection-start-column="8" selection-end-line="355" selection-end-column="75" />
+          <folding>
+            <element signature="e#42#73#0#PHP" expanded="true" />
+            <element signature="e#3068#3089#1#PHP" expanded="true" />
+            <element signature="e#4836#4857#1#PHP" expanded="true" />
+            <element signature="e#5465#5489#1#PHP" expanded="true" />
+            <element signature="e#8009#8033#1#PHP" expanded="true" />
+            <element signature="e#8162#8186#1#PHP" expanded="true" />
+            <element signature="e#9157#9178#1#PHP" expanded="true" />
+            <element signature="e#9306#9330#1#PHP" expanded="true" />
+            <element signature="e#16894#16918#1#PHP" expanded="true" />
+            <marker date="1465393155956" expanded="true" signature="1004:1244" ph="SELECT nome anfitriao" />
+            <marker date="1465393155956" expanded="true" signature="15491:16075" ph="..." />
+            <marker date="1465393155956" expanded="true" signature="15542:15638" ph="..." />
+            <marker date="1465393155956" expanded="true" signature="15689:16044" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

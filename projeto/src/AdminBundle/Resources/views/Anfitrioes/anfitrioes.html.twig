@@ -1,0 +1,404 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function get_anfitrioes(){
+
+                window.tabela = $('#table').DataTable( {
+                    "destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_anfitrioes") }}',
+                        "data": {
+                            "sort": [[0,'desc']],
+                            'nome_anfitriao': $('#nome_anfitriao').val(),
+                            'email_anfitriao': $('#email_anfitriao').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [{
+                            "targets" : 4,
+                            "render" : function (obj) {
+                                var btnHtml = [];
+                                btnHtml.push("<span style='white-space:nowrap'>");
+                                btnHtml.push("<button type='button' id='editar_anfitriao"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Editar</button>&nbsp;");
+
+                                {% if is_granted('ROLE_SUPER') or is_granted('ROLE_OWNER') or is_granted('ROLE_MASTER') %}
+                                btnHtml.push("<button id='remover_anfitriao"+obj+"' data-id="+obj+" class='btn btn-danger'>Remover</button>");
+                                btnHtml.push("</span>");
+                                {% endif %}
+                                return btnHtml.join('');
+                            }
+                        }]
+                });
+            }
+
+            get_anfitrioes();
+
+            $("body").on("change",".get_anfitrioes",function(){
+            	get_anfitrioes();
+            });
+        });
+
+        $("body").on("click","button[id*='editar_anfitriao']",function(){
+            var element = $(this);
+
+            $.ajax({
+                data: { id: element.attr('data-id') },
+                method: 'post',
+                url: '{{ path('admin_editar_anfitriao') }}',
+                success: function(result){
+                    $('#modal_editar_anfitriao').modal('show');
+                    $('#modal_editar_anfitriao').on('shown.bs.modal', function() {
+                        $('.montar_form_anfitriao').remove();
+                        $('#modal_editar_anfitriao').find('.modal-body').append(result);
+
+                        $("#form_anfitriao").validate({
+                            submitHandler: function(e) {
+                                $.ajax({
+                                    type: "POST",
+                                    url: '{{ path('admin_gravar_anfitriao') }}',
+                                    data: { dados: $("#form_anfitriao").serialize() },
+                                    success: function(data){
+                                        $('#modal_editar_anfitriao').modal('hide');
+                                        window.location.reload(true);
+                                    }
+                                });
+                            },
+                            rules: {
+                                editar_id_ponto_de_venda: "required",
+                                editar_nome_anfitriao: 'required',
+                                editar_username_anfitriao: {
+                                    required: true,
+                                    minlength: 4
+                                },
+                                editar_email_anfitriao: {
+                                    required: true,
+                                    email: true
+                                },
+                                editar_cpf_anfitriao: {
+                                    required: true,
+                                    minlength: 14
+                                },
+                                editar_password_anfitriao: {
+                                    required: {
+                                        depends: function( el ) {
+                                            var valid = false;
+                                            if( $(el).val().length > 0 ) {
+                                                valid = true;
+                                            }
+
+                                            return valid;
+                                        }
+                                    },
+                                    minlength: 6
+                                }
+                            },
+                            messages: {
+                                editar_id_ponto_de_venda: 'Selecione um ponto de venda',
+                                editar_nome_anfitriao: 'Digite o nome do anfitrião',
+                                editar_username_anfitriao: {
+                                    required: 'Digite o usuário do anfitrião',
+                                    minlength: 'O usuário deve ter no mínimo 4 caracteres'
+                                },
+                                editar_senha_anfitriao: {
+                                    required: 'Digite uma senha para o anfitrião',
+                                    minlength: 'A senha deve ter no mínimo 6 caracteres'
+                                },
+                                editar_email_anfitriao: {
+                                    required: 'Digite o e-mail do anfitrião',
+                                    email: 'O email informado é inválido'
+                                },
+                                editar_cpf_anfitriao: {
+                                    required: 'Digite o CPF do anfitrião',
+                                    minlength: 'O CPF informado é inválido'
+                                },
+                                editar_password_anfitriao: {
+                                    required: 'Digite uma senha para o anfitrião',
+                                    minlength: 'A senha deve ter no mínimo 6 caracteres'
+                                }
+                            }
+                        });
+                    });
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    alert('Erro = '+errorThrown);
+                }
+            });
+    	});
+
+        $("body").on("click","button[id='inserir_novo_anfitriao']",function(){
+            $('#modal_novo_anfitriao').modal('show');
+    	});
+
+        $("#form_novo_anfitriao").validate({
+            submitHandler: function(e) {
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path('admin_inserir_novo_anfitriao') }}',
+                    data: { dados: $("#form_novo_anfitriao").serialize() },
+                    success: function(data) {
+                        $('#modal_novo_anfitriao').modal('hide');
+                        window.location.reload(true);
+                    }
+                });
+            },
+            rules: {
+                novo_id_ponto_de_venda: "required",
+                novo_nome_anfitriao: 'required',
+                novo_username_anfitriao: {
+                    required: true,
+                    minlength: 4
+                },
+                novo_senha_anfitriao: {
+                    required: true,
+                    minlength: 6
+                },
+                novo_email_anfitriao: {
+                    required: true,
+                    email: true
+                },
+                novo_cpf_anfitriao: {
+                    required: true,
+                    minlength: 14
+                }
+            },
+            messages: {
+                novo_id_ponto_de_venda: 'Selecione um ponto de venda',
+                novo_nome_anfitriao: 'Digite o nome do anfitrião',
+                novo_username_anfitriao: {
+                    required: 'Digite o usuário do anfitrião',
+                    minlength: 'O usuário deve ter no mínimo 4 caracteres'
+                },
+                novo_senha_anfitriao: {
+                    required: 'Digite uma senha para o anfitrião',
+                    minlength: 'A senha deve ter no mínimo 6 caracteres'
+                },
+                novo_email_anfitriao: {
+                    required: 'Digite o e-mail do anfitrião',
+                    email: 'O email informado é inválido'
+                },
+                novo_cpf_anfitriao: {
+                    required: 'Digite o CPF do anfitrião',
+                    minlength: 'O CPF informado é inválido'
+                }
+            }
+        });
+
+        $("body").on("click","button[id*='remover_anfitriao']",function(){
+            var element = $(this);
+
+            if(!confirm('Tem certeza que deseja remover este item?')) return false;
+
+            $.ajax({
+                data: { id: element.attr('data-id') },
+                method: 'post',
+                url: '{{ path('admin_remover_anfitriao') }}',
+                success: function(result){
+                    if(!$.trim(result)){
+                        alert('Anfitrião removido com sucesso');
+                        window.location.reload(true);
+                    } else {
+                        alert(result);
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    alert('Erro = '+errorThrown);
+                }
+            });
+    	});
+
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_anfitriao" class='form-control get_anfitrioes' type='text' name='nome_anfitriao' value=''></input>
+                            </div>
+                        </div>
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Email</label>
+                                <input id="email_anfitriao" class='form-control get_anfitrioes' type='text' name='email_anfitriao' value=''></input>
+                            </div>
+                        </div>
+                        {% if is_granted('ROLE_SUPER') or is_granted('ROLE_OWNER') or is_granted('ROLE_MASTER') %}
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='inserir_novo_anfitriao' class='btn btn-primary'>Novo</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table class='table table-sripped' id='table'>
+                        <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Email</th>
+                            <th>Telefone</th>
+                            <th>Endereço</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal Anfitriao -->
+<form id='form_anfitriao' method='POST'>
+	<div class="modal fade" id="modal_editar_anfitriao" tabindex="-1" role="dialog" aria-labelledby="modal_editar_anfitriao" data-backdrop="static">
+		<div class="modal-dialog" role="anfitriao">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Anfitrião</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" id="editar_anfitrioes"
+						class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- Modal novo Anfitriao -->
+<form id='form_novo_anfitriao' method='POST'>
+    <div class="modal fade" id="modal_novo_anfitriao" tabindex="-1" role="dialog" aria-labelledby="modal_novo_anfitriao" data-backdrop="static">
+        <div class="modal-dialog" role="anfitriao">
+            <div class="modal-content" style="width:800px;">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="material-icons" style="margin-top: 3px; margin-right: 0">close</i></span>
+                    </button>
+                    <h4 class="modal-title">Novo Anfitrião</h4>
+                </div>
+                <div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Ponto de Venda</label>
+                        </div>
+
+                        <div class='col-md-9'>
+                            <select name="novo_id_ponto_de_venda" class="form-control" {% if not tem_super %}disabled="disabled"{% endif %}>
+                                <option value=""></option>
+                                {% for item in pontos %}
+                                    <option value="{{ item.id_ponto_de_venda }}" {% if item.id_ponto_de_venda == id_ponto_de_venda %}selected{% endif %}>{{ item.nome }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Nome</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='novo_nome_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Email</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='novo_email_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Telefone</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control mask-phone' type='text' name='editar_telefone_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Endereço</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='novo_endereco_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>CPF</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control mask-cpf' type='text' name='novo_cpf_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Faixa</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <select name="novo_faixa_anfitriao" class="form-control">
+                                <option value="25">25</option>
+                                <option value="35">35</option>
+                                <option value="42">42</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Username</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='text' name='novo_username_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Senha</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input class='form-control' type='password' name='novo_senha_anfitriao' value=''></input>
+                        </div>
+                    </div>
+                    {% if tem_super %}
+                    <div class='row'>
+                        <div class='col-md-3'>
+                            <label>Super-Usuário</label>
+                        </div>
+                        <div class='col-md-9'>
+                            <input type='radio' name='novo_super_user' value='1' /> Sim &nbsp;&nbsp;&nbsp;
+                            <input type='radio' name='novo_super_user' value='0' checked /> Não
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" id="editar_anfitrioes" class="btn btn-primary pull-left">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endblock %}

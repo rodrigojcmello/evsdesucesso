@@ -1,0 +1,113 @@
+{% extends '::admin.html.twig' %}
+
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <div class="box">
+                <div class="box-body">
+                    <form name="form1" enctype="multipart/form-data" method="post"
+                          action="{{ path('carga_envia') }}">
+
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="">Arquivo</label>
+                            <input type="file" id="arquivo_planilha" class="form-control"
+                                   name='arquivo_planilha'></input>
+                            <input type="submit" class="btn btn-default" value="Enviar">
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% if valido is defined %}
+            {% if valido %}
+                <form name="form2" method="post" action="{{ path('carga_confirma' ) }}">
+                    <textarea style="display:none" name="itens">{{ items }}</textarea>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <input type="submit" class="btn btn-danger" value="Confirmar envio dos dados">
+                    </div>
+                </form>
+
+            {% else %}
+                <div class="alert alert-danger">
+                    <strong>Erro!</strong>Todos os itens devem necessariamente possuir preços definidos.<br/>
+                    Verifique e tente fazer o upload novamente.
+                </div>
+                <div class="alert alert-warning">
+                    <strong>Verifique na planilha codigo(s) : </strong>
+                    {% for erro in erros %}
+                        {{ erro }}&nbsp;
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% elseif comprovante is defined %}
+            <pre>
+                {{ comprovante }}
+            </pre>
+        {% endif %}
+        {% if itens is defined %}
+
+            <table class="table table-bordered" border>
+
+                {% for item in itens %}
+                    <tr>
+                        <td>
+                            {{ item.sku }}
+                        </td>
+                        <td>
+                            {{ item.descricao }}
+                        </td>
+                        <td>
+                            {{ item.apelido }}
+                        </td>
+                        <td>
+                            {{ item.pv }}
+                        </td>
+                        <td>
+                            {{ item.cat1 }}
+                        </td>
+                        <td>
+                            {{ item.cat2 }}
+                        </td>
+                        <td>
+                            {% if item.preco is defined %}
+                                {{ item.preco }}
+                            {% endif %}
+                        </td>
+                        <td>
+
+                            <table class="table table-bordered">
+                                {% if item.tabela is defined %}
+                                    {% for  key, preco in item.tabela %}
+                                        <tr>
+                                            <td> {{ key }}</td>
+                                            <td nowrap> {{ preco.custo25 }}</td>
+                                            <td nowrap> {{ preco.custo35 }}</td>
+                                            <td nowrap> {{ preco.custo42 }}</td>
+                                            <td nowrap> {{ preco.custo50 }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                {% else %}
+                                    <tr><td colspan="5">preço não disponível</td></tr>
+                                {% endif %}
+                            </table>
+                        </td>
+                    </tr>
+
+                {% endfor %}
+
+            </table>
+
+            <pre>
+
+                linhas {{ linhas }}
+                maior c sheet 2 {{ maiorc }}
+            </pre>
+
+
+        {% endif %}
+    </div>
+{% endblock %}

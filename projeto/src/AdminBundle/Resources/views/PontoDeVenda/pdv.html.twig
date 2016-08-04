@@ -1,0 +1,308 @@
+{% extends '::admin.html.twig' %}
+
+{% block stylesheets %}
+    {# DataTables #}
+{% endblock %}
+
+{% block javascripts %}
+    {# DataTables #}
+    <script type="text/javascript" src="/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function(){
+        	
+            function get_pdvs()
+            {
+            	
+                window.tabela = $('#table').DataTable( {
+                	"destroy": true,
+                    "bProcessing": false,
+                    "bServerSide": true,
+                    "sPaginationType": "simple",
+                    "bFilter": false,
+                    "bInfo": false,
+                    "ajax": {
+                        "url": '{{ path("buscar_pdvs") }}',
+                        "data": {
+                        	"sort": [[0,'desc']],
+                        	'nome_pdv': $('#nome_pdv').val()
+                        },
+                        "type": "POST"
+                    },
+                    "columnDefs" : [
+                                    {
+                                        "targets" : 9,
+                                        "render" : function (obj) {
+                                            return "<button type='button' id='editar_pdv"+obj+"' data-id='"+obj+"' class='btn btn-primary'>Editar</button>";
+                                        }
+                                    }
+                                ]
+
+                } );
+				
+            }
+            get_pdvs();
+            $("body").on("change",".get_pdvs",function(){
+            	get_pdvs();
+        	});
+        
+            $("body").on("click","button[id*='editar_pdv']",function(){
+        		var element = $(this);
+        		$.ajax({
+        			data: {
+        				id: element.attr('data-id') },
+        			method: 'post',
+        			url: '{{ path('admin_editar_pdv') }}',
+        			success: function(result){
+        				$('#modal_editar_pdv').modal('show');
+        				$('#modal_editar_pdv').on('shown.bs.modal', function() {
+        					$('.montar_form_pdv').remove();
+        				    $('#modal_editar_pdv').find('.modal-body').append(result);
+        				  });
+        			},
+        			error: function(jqXHR, textStatus, errorThrown){
+        				
+        					alert('Erro = '+errorThrown);
+        			}
+        			});
+        	});
+            
+            $("body").on("click","button[id='inserir_nova_pdv']",function(){
+            	$('#modal_nova_pdv').modal('show');
+        	});
+            
+            $("#form_pdv").validate({
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('admin_gravar_pdv') }}',
+                        data: { dados: $("#form_pdv").serialize() },
+                        success: function(data) {
+                            $('#modal_editar_pdv').modal('hide');
+                            window.location.reload(true);
+                        }
+                    });
+                },
+                rules: {
+                    editar_nome_ponto_de_venda: 'required', 
+                    editar_endereco_ponto_de_venda: 'required', 
+                    editar_telefone_ponto_de_venda: 'required'
+                },
+                messages: {
+                    editar_nome_ponto_de_venda: 'Digite o nome do ponto de venda', 
+                    editar_endereco_ponto_de_venda: 'Digite o endereço do ponto de venda', 
+                    editar_telefone_ponto_de_venda: 'Digite o telefone do ponto de venda'
+                }
+            });
+            
+            $("#form_nova_pdv").validate({
+                submitHandler: function(e) {
+                    $.ajax({
+                        type: "POST",
+                        url: '{{ path('admin_inserir_nova_pdv') }}',
+                        data: { dados: $("#form_nova_pdv").serialize() },
+                        success: function(data) {
+                            $('#modal_nova_pdv').modal('hide');
+                            window.location.reload(true);
+                        }
+                    });
+                },
+                rules: {
+                    novo_nome_ponto_de_venda: 'required', 
+                    novo_endereco_ponto_de_venda: 'required', 
+                    novo_telefone_ponto_de_venda: 'required'
+                    {% if is_granted('ROLE_SUPER') %}
+                    , novo_data_expiracao_ponto_de_venda: 'required'
+                    {% endif %}
+                },
+                messages: {
+                    novo_nome_ponto_de_venda: 'Digite o nome do ponto de venda', 
+                    novo_endereco_ponto_de_venda: 'Digite o endereço do ponto de venda', 
+                    novo_telefone_ponto_de_venda: 'Digite o telefone do ponto de venda'
+                    {% if is_granted('ROLE_SUPER') %}
+                    , novo_data_expiracao_ponto_de_venda: 'Digite a data de expiração (formato: AAAA-MM-DD)'
+                    {% endif %}
+                }
+            });
+
+        });
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <label for="">Nome</label>
+                                <input id="nome_pdv" class='form-control get_pdvs' type='text' name='nome_pdv' value=''></input>
+                            </div>
+                        </div>
+                        {% if is_granted('ROLE_SUPER') or is_granted('ROLE_MASTER') %}
+                        <div class="col-md-2 border-md-right">
+                            <div class="form-group" style="margin-bottom: 0;width: 150px;">
+                                <button type='button' id='inserir_nova_pdv' class='btn btn-primary'>Novo</button>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <hr style="margin-top: 15px">
+                    <table id='table'>
+                        <thead>
+                        <tr>
+                            <th>Classe</th>
+                            <th>UF</th>
+                            <th>Nome</th>
+                            <th>Endereço</th>
+                            <th>Telefone</th>
+                            <th>Site</th>
+                            <th>Dono</th>
+                            <th>Data Expiração</th>
+                            <th>Master</th>
+                            <th>Ação</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- Modal PDV -->
+<form id='form_pdv' method='POST'>
+	<div class="modal fade" id="modal_editar_pdv"
+		tabindex="-1" role="dialog"
+		aria-labelledby="modal_editar_pdv">
+		<div class="modal-dialog" role="pdv">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">PDV</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- Modal nova pdv -->
+<form id='form_nova_pdv' method='POST'>
+	<div class="modal fade" id="modal_nova_pdv" tabindex="-1" role="dialog" aria-labelledby="modal_nova_pdv" data-backdrop="static">
+		<div class="modal-dialog" role="pdv">
+			<div class="modal-content" style="width:800px;">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons"
+							style="margin-top: 3px; margin-right: 0">close</i></span>
+					</button>
+					<h4 class="modal-title">Novo PDV</h4>
+				</div>
+				<div class="modal-body" style="padding-bottom: 15px;width: 100%;">
+				<div class='row'>
+						<div class='col-md-3'>
+							<label>Classe</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<select name="novo_id_classe_ponto_de_venda" class="form-control">
+                                    {% for item in classes %}
+                                        <option value="{{ item.id_classe_ponto_de_venda }}">{{ item.descricao }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+    				<div class='row'>
+						<div class='col-md-3'>
+							<label>UF</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<select name="novo_id_uf_ponto_de_venda" class="form-control">
+                                    {% for item in uf %}
+                                        <option value="{{ item.id_uf }}">{{ item.nome }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Nome</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<input class='form-control' type='text' name='novo_nome_ponto_de_venda' value=''></input>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Endereço</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<input class='form-control' type='text' name='novo_endereco_ponto_de_venda' value=''></input>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Telefone</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<input class='form-control mask-phone' type='text' name='novo_telefone_ponto_de_venda' value=''></input>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Site</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<input class='form-control' type='text' name='novo_site_ponto_de_venda' value=''></input>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Dono</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<select name="novo_id_anfitriao_ponto_de_venda" class="form-control">
+                                    {% for item in anfitriao %}
+                                        <option value="{{ item.id_anfitriao }}">{{ item.username }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Master</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<select name="novo_id_anfitriao_master_ponto_de_venda" class="form-control">
+                                    {% for item in anfitriao %}
+                                        <option value="{{ item.id_anfitriao }}">{{ item.username }}</option>
+                                    {% endfor %}
+                                </select>
+    					</div>
+       				</div>
+                    {% if is_granted('ROLE_SUPER') %}
+       				<div class='row'>
+						<div class='col-md-3'>
+							<label>Data Expiração</label>
+    					</div>
+    					<div class='col-md-9'>
+    						<input class='form-control mask-date' type='text' name='novo_data_expiracao_ponto_de_venda' value=''></input>
+    					</div>
+       				</div>
+                    {% endif %}
+				</div>
+				<div class="modal-footer">
+					<button type="submit" class="btn btn-primary pull-left">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>							
+{% endblock %}

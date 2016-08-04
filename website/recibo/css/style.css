@@ -1,0 +1,114 @@
+body {
+	background-color: #eee;
+	font-family: Arial;
+}
+
+.container {
+	width: 700px;
+	margin: 0 auto;
+}
+
+	.container .header {
+		height: 70px;
+		margin-bottom: 10px;
+		background-color: #fff;
+	}
+
+		.container .header img {
+			float: left;
+			padding: 5px 30px 5px 10px;
+		}
+
+		.container .header h1 {
+			font-size: 18px;
+			font-weight: normal;
+			margin: 0px;
+			padding: 5px 0px 20px 0px;
+		}
+
+		.container .header span {
+			font-size: 12px;
+		}
+
+	.container .middle {}
+	
+		.container .middle .box {
+			margin-bottom: 10px;
+		}
+
+			.container .middle .box .title {
+				text-align: center;
+				background: #aaa;
+				padding: 1.5px;
+				font-size: 18px;
+				text-transform: uppercase;
+			}
+
+			.container .middle .box .total {
+				float: right;
+				width: 230px;
+			}
+
+			.container .middle .box table {
+				width: 700px;
+				width: 700px;
+				border-collapse: collapse;
+				background-color: #fff;
+				border: 1px solid #ccc;
+			}
+
+				.container .middle .box td {
+					width: 233px;
+					height: 35px;
+					font-size: 12px;
+					border: 1px solid #ccc;
+				}
+
+					.container .middle .box td span {
+						padding: 0 10px;
+						width: 210px;
+						display: block;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+					}
+
+					.container .middle .box td p {
+						width: 210px;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+						padding: 1px 0px 0px 10px;
+						margin: 0;
+						font-weight: bold;
+						text-transform: uppercase;
+					}
+
+					.container .middle .box td .price {
+						text-align: right;
+					}
+
+		.container .footer {
+			font-size: 12px;
+		}
+
+			.container .footer p {
+				margin: 5px 0px;
+			}
+
+			.container .footer a {
+				color: #000;
+				text-decoration: underline;
+			}
+		
+			.container .footer .txt-left {
+				text-align: left;
+				float: left;
+				width: 50%;
+			}
+
+			.container .footer .txt-right {
+				text-align: right;
+				float: right;
+				width: 50%;
+			}			

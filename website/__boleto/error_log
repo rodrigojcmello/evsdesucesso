@@ -1,0 +1,18 @@
+[29-Oct-2014 10:34:36] PHP Fatal error:  Call to undefined method BoletoBradesco::setAgenciaDigito() in /home/evs/public_html/boleto/boleto.php on line 9
+[29-Oct-2014 10:39:58] PHP Fatal error:  Call to undefined method BoletoBradesco::setDigito() in /home/evs/public_html/boleto/boleto.php on line 11
+[29-Oct-2014 15:40:04] PHP Fatal error:  Call to undefined method BoletoBradesco::getValor() in /home/evs/public_html/boleto/layout.php on line 111
+[30-Oct-2014 10:40:28] PHP Parse error:  syntax error, unexpected ';' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 404
+[30-Oct-2014 10:52:00] PHP Fatal error:  Using $this when not in object context in /home/evs/public_html/boleto/boleto.php on line 28
+[30-Oct-2014 10:52:45] PHP Fatal error:  Cannot access private property BoletoBradesco::$expDays in /home/evs/public_html/boleto/boleto.php on line 28
+[30-Oct-2014 10:55:15] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 406
+[30-Oct-2014 12:49:37] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 382
+[30-Oct-2014 16:14:00] PHP Parse error:  syntax error, unexpected ')' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 520
+[30-Oct-2014 17:01:20] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ',' or ';' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 496
+[30-Oct-2014 17:07:46] PHP Parse error:  syntax error, unexpected ')' in /home/evs/public_html/boleto/class/GeraBoleto.class.php on line 493
+[03-Nov-2014 10:06:31] PHP Fatal error:  Using $this when not in object context in /home/evs/public_html/boleto/boleto.php on line 26
+[21-Nov-2014 20:31:37] PHP Fatal error:  Call to a member function getLinhaDigitavel() on a non-object in /home/evs/public_html/boleto/layout.php on line 20
+[21-Nov-2014 20:31:40] PHP Fatal error:  Class 'BoletoBradesco' not found in /home/evs/public_html/boleto/teste-instancias.php on line 5
+[23-Nov-2014 03:09:54] PHP Fatal error:  Class 'BoletoBradesco' not found in /home/evs/public_html/boleto/teste-instancias.php on line 5
+[10-Jan-2015 23:53:08] PHP Fatal error:  Call to a member function getLinhaDigitavel() on a non-object in /home/evs/public_html/boleto/layout.php on line 20
+[23-Jan-2015 06:17:48] PHP Fatal error:  Class 'BoletoBradesco' not found in /home/evs/public_html/boleto/teste-instancias.php on line 5
+[26-Jan-2015 04:11:33] PHP Fatal error:  Call to a member function getLinhaDigitavel() on a non-object in /home/evs/public_html/boleto/layout.php on line 20

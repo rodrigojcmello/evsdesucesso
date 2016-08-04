@@ -1,0 +1,53 @@
+{% block modalBody %}
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel" id="dialog-export">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="gridSystemModalLabel">Exportar relatório para Excel</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="check-limit">Habilitar limite de registros do relatório no arquivo excel.
+                        </label>
+                    </div>
+                </div>
+                <div class="row no-margin form-inline">
+                    <div class="form-group col-xs-12 no-margin no-padding">
+                        <label for="number-limit">Quantidade de registros para exportar</label>
+                        <br>
+                        <input type="number" value="1" min="1" id="number-limit" class="form-control" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btn-export">Exportar</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block modalJavascript %}
+    <script>
+        $('#btn-export').on('click', function(){
+            var numberLimit = '';
+            if( $('#check-limit').is(':checked') && $('#number-limit').val() > 0 ) {
+                numberLimit = '/' + $('#number-limit').val();
+            }
+
+            window.location= '{{ path('admin_exportar_relatorio', { 'type': _typeDownload  }) }}' + numberLimit;
+        });
+
+        $('#check-limit').on('change', function(){
+            if( $(this).is(':checked') ) {
+                $('#number-limit').prop('disabled', '');
+            } else {
+                $('#number-limit').prop('disabled', 'disabled');
+            }
+        });
+    </script>
+{% endblock %}
