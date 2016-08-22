@@ -38,7 +38,7 @@ class Produto
     protected $gradesConsumoEspecifico;
 
     /**
-     * @ORM\OnetoOne(targetEntity="ProdutoImagem", mappedBy="produto")
+     * @ORM\OneToOne(targetEntity="ProdutoImagem", mappedBy="produto")
      */
     protected $imagemProduto;
 
