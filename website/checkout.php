@@ -157,6 +157,7 @@
 
 				var dataForm = {
 						"entidade_nome"		: $("#entidade_nome").val(),
+						"username"		    : $("#username").val(),
 						"usuario_email"		: $("#usuario_email").val(),
 						"usuario_senha"		: $("#usuario_senha").val(),
 						"usuario_telefone"	: $("#usuario_telefone").val(),
@@ -208,16 +209,22 @@
 				}
 
 				//console.log(usuario_foto);
-				console.log('02');
+				// console.log('02');
 				if( fieldsVerify.length == 0 || true ){ // TODO remover true
-					console.log('01');
-					console.log(dataForm);
+					// console.log('01');
+					// console.log(dataForm);
 					$.ajax({
-						url: 'sendnew.php',
+						dataType: 'json',
+						url: 'sendnew-teste.php',
 						type: 'post',
 						data: dataForm,
-			            success: function (data) {
+			            success: function(data) {
 							console.log(data);
+							if (data.codigo == 400) {
+								alert(data.mensagem);
+							} else if (data.codigo == 200) {
+								alert('Parabés! Você acaba de se cadastrar com sucesso!')
+							}
 			                // if( data.sucesso == true ){
 			                // 	$("#loading").fadeOut('fast', function(){
 			                // 		$("#loading:after").hide();
@@ -242,14 +249,15 @@
 			                // }
 			                // window.location = data[0].usuario_foto;
 			            },
-			            error: function(data){
-			            	//console.error(data);
-			            	console.error(data);
-			            	console.error('erro ajax');
-			            	$("#loading").fadeOut('fast', function(){
-			            		$("#loading:after").hide();
-			                	alert('Não foi possível enviar sua solicitação, por favor tente mais tarde.');
-			                });
+			            error: function(data) {
+							console.log('erro');
+							console.log(data);
+			            	// console.error(data);
+			            	// console.error('erro ajax');
+			            	// $("#loading").fadeOut('fast', function(){
+			            	// 	$("#loading:after").hide();
+			                // 	alert('Não foi possível enviar sua solicitação, por favor tente mais tarde.');
+			                // });
 			            }
 					});
 				} else {
@@ -462,6 +470,9 @@
 									<div class="col-md-12 text-right">
 										<div class="col-md-6 text-left">
 											<input type="text" name="entidade_nome" id="entidade_nome" placeholder="Nome Completo">
+										</div>
+										<div class="col-md-6 text-left">
+											<input type="text" name="username" id="username" placeholder="username">
 										</div>
 										<div class="col-md-6 text-right">
 											<input type="text" name="usuario_telefone" id="usuario_telefone" placeholder="Telefone">
