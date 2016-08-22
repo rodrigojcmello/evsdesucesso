@@ -1,5 +1,5 @@
 <?php
-	$dbh = new PDO('pgsql:host=localhost user=rodrigo dbname=evs password=123456');
+	$dbh = new PDO('pgsql:host=localhost user=rodrigo dbname=evs password=T3cl@do2');
 
 	// Ponto de venda ----------------------------------------------------------
 
@@ -23,6 +23,8 @@
 	$enabled = 't';
 	$salt = '37hnsd90fgn3hfdcgh26492jnsge23h';
 	$password = 'calfat@109{37hnsd90fgn3hfdcgh26492jnsge23h}';
+	// $salt = hash('sha512', $_POST['usuario_senha'], true);
+	// $password = $_POST['usuario_senha'] . '{' . $salt . '}';
 	// $last_login = '';
 	$locked = 'f';
 	$expired = 'f';
@@ -74,9 +76,6 @@
 		} else {
 			// $retorno['codigo'] = 200;
 			// echo json_encode($retorno);
-
-
-
 
 			$stmt = $dbh->prepare('INSERT INTO anfitriao (
 				id_anfitriao,
@@ -190,6 +189,7 @@
 				} else {
 					// echo 'false';
 				}
+				// $retorno['codigo'] = 200;
 			} else {
 				// echo 'false';
 			}
