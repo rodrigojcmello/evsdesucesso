@@ -34,13 +34,13 @@ class DefaultController extends Controller
         $req->invalidate();
         $req->clear();
 
-        dump($req);
-        dump( $this->getUser() ) ; // ->invaldate();
+        // dump($req);
+        // dump( $this->getUser() ) ; // ->invaldate();
 
         $anonToken = new AnonymousToken('theTokensKey', 'anon.', array());
         $this->get('security.token_storage')->setToken($anonToken);
 
-        dump($_SERVER);
+        // dump($_SERVER);
         return new Response("ok");
     }
 

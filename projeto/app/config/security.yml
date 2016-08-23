@@ -9,29 +9,14 @@ security:
 
     firewalls:
         main:
-            pattern:    ^/sync
-            stateless:  true
-            anonymous:  true
-            form_login: false
-            logout: true
-            http_basic:
-                provider: fos_userbundle
-        main1:
-            pattern:    ^/autentica
-            stateless:  true
-            anonymous:  true
-            form_login: false
-            logout: true
-            http_basic:
-                provider: fos_userbundle
-        main2:
-            pattern:    ^/admin
-            stateless:  true
-            anonymous:  true
-            form_login: false
-            logout: true
-            http_basic:
-                provider: fos_userbundle
+            anonymous: ~
+            pattern: ^/
+            form_login:
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
+            logout:
+                path: /logout
+                target: /
 
     access_control:
         - { path: ^/autentica, roles: IS_AUTHENTICATED_FULLY }

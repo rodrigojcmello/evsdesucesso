@@ -8,9 +8,9 @@
 	// $id_anfitriao = '2'; // duplicidade
 	// $nome = 'PHP User 01'; // duplicidade
 	// $endereco = 'Rua Teste, 123'; // duplicidade
-	$telefone = '11999999999';
+	// $telefone = $_POST['usuario_telefone']; // duplicidade
 	$site = 'http://site.com';
-	$data_expiracao = '2222-01-01';
+	$data_expiracao = '2222-01-01'; // TODO o que é isso?
 	// $dta = '2016-08-04 17:26:21'; // duplicidade
 	$id_anfitriao_master = '2';
 
@@ -22,31 +22,32 @@
 	$email = $email_canonical = $_POST['usuario_email']; //'webmaster2@cm2tech.com.br';
 	$enabled = 't';
 	$salt = '37hnsd90fgn3hfdcgh26492jnsge23h';
-	$password = 'calfat@109{37hnsd90fgn3hfdcgh26492jnsge23h}';
+	$password = $_POST['usuario_senha'] . '{37hnsd90fgn3hfdcgh26492jnsge23h}';
 	// $salt = hash('sha512', $_POST['usuario_senha'], true);
 	// $password = $_POST['usuario_senha'] . '{' . $salt . '}';
 	// $last_login = '';
 	$locked = 'f';
 	$expired = 'f';
 	// $expires_at = 'teste vázio 03';
-	$confirmation_token = 'teste vázio 04';
+	$confirmation_token = '';
 	// $password_requested_at = 'teste vázio 05';
-	$roles = 'tipo json';
+	$roles = 'a:1:{i:0;s:10:"ROLE_SALES";}';
 	$credentials_expired = 'f';
 	// $credentials_expire_at = 'teste vázio 06';
 	// $nome = 'Webmaster'; // duplicidade
 	// $endereco = 'Rua Comendador Miguel Calfat, 109'; // duplicidade
 	$faixa = '25';
-	$telefone = 'teste vázio 08';
-	$cpf = 'teste vázio 09';
+	// $telefone = 'teste vázio 08'; duplicidade
+	$cpf = $_POST['entidade_numero'];
 	// $dta = '2016-03-30 16:31:51'; //duplicidade
 
 	// Ambos -------------------------------------------------------------------
 
 	$dta = '2016-03-30 16:31:51';
-	$nome = 'nome';
+	$nome = $_POST['entidade_nome'];
 	// $id_anfitriao = '12'; // TODO gerado dinamicamente
-	$endereco = 'Rua Comendador Miguel Calfat, 109';
+	$endereco = $_POST['entidade_endereco'];
+	$telefone = $_POST['usuario_telefone'];
 
 	// ID Anfitrião ------------------------------------------------------------
 

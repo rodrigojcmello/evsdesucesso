@@ -1,0 +1,41 @@
+security:
+
+    encoders:
+        FOS\UserBundle\Model\UserInterface: plaintext
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_manager
+
+    firewalls:
+        main:
+            pattern:    ^/sync
+            stateless:  true
+            anonymous:  true
+            form_login: false
+            logout:
+                path:   admin_default_sair
+                target: index
+            http_basic:
+                provider: fos_userbundle
+        main1:
+            pattern:    ^/autentica
+            stateless:  true
+            anonymous:  true
+            form_login: false
+            logout: true
+            http_basic:
+                provider: fos_userbundle
+        main2:
+            pattern:    ^/admin
+            stateless:  true
+            anonymous:  true
+            form_login: false
+            logout: true
+            http_basic:
+                provider: fos_userbundle
+
+    access_control:
+        - { path: ^/autentica, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/sync, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY  }
